@@ -1,0 +1,20 @@
+<div class="container padded">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= simple_form_for @announces do |f| %>
+      <%= f.association :company %>
+      <%= f.input :title %>
+      <%= f.input :price %>
+      <%= f.input :kind %>
+      <%= f.input :number_of_share %>
+      <%= f.input :reason %>
+
+
+
+
+
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
