@@ -1,0 +1,16 @@
+fr:
+  companies:
+    index:
+      title:
+        zero:  'Créez la première société!'
+        one:   'Une société'
+        other: "Liste de sociétés: %{count} resultats trouvés"
+    show:
+      title: "%{name}"
+      general_information: "Informations Générales"
+      business_model: "Business Model"
+      development: "Developpement"
+      vision: "Vision"
+      team: "L'équipe"
+    new:
+      title: "Ajouter une société"
