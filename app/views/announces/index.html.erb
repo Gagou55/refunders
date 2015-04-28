@@ -1,0 +1,10 @@
+<h1> Toutes les annonces </h1>
+<ul>
+  <% @announces.each do |announce| %>
+    <li> <%= link_to announce.title, announce %> </li>
+    <li> <%= announce.price %> </li>
+    <li> <%= announce.kind %> </li>
+    <li> <%= announce.number_of_share %> </li>
+  <% end %>
+</ul>
+
