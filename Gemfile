@@ -26,6 +26,7 @@ gem "devise-i18n"
 gem "devise-i18n-views"
 
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin-oauth2'
 
 group :development, :test do
   gem "spring"
