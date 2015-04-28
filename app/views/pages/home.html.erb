@@ -26,6 +26,15 @@
 
       <p><%= link_to "Ajouter une annonce", new_announce_path %></p>
       <p><%= link_to "Voir toutes les annonces", announces_path %></p>
+      <li>
+        <%= link_to "Connexion", new_user_session_path %>
+      </li>
+    <!-- Facebook login -->
+      <li>
+        <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
+    </li>
+
+
     </div>
   </div>
 </div>
