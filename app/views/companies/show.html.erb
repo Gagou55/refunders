@@ -1,2 +1,23 @@
-<h1>Companies#show</h1>
-<p>Find me in app/views/companies/show.html.erb</p>
+<div class="container">
+  <div class="row">
+  <h1><%= t '.title', name: @company.name %></h1>
+  <%= image_tag @company.logo %>
+  <%= @company.summary %>
+
+  <h2 id="general_information_company"><%= t '.general_information' %></h2>
+  <%= @company.general_information %>
+
+  <h2 id="business_model_company"><%= t '.business_model' %></h2>
+  <%= @company.business_model %>
+
+  <h2 id="development_company"><%= t '.development' %></h2>
+  <%= @company.development %>
+
+  <h2 id="vision_company"><%= t '.vision' %></h2>
+  <%= @company.vision %>
+
+  <h2 id="team_company"><%= t '.team' %></h2>
+  <%= @company.team %>
+
+  </div>
+</div>

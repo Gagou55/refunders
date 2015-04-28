@@ -21,3 +21,18 @@
 
 en:
   hello: "Hello world"
+  companies:
+    index:
+      title:
+        zero:  'Create the first company!'
+        one:   'One company'
+        other: "List of companies: %{count} results"
+    show:
+      title: "%{name}"
+      general_information: "General informations"
+      business_model: "Business Model"
+      development: "Development"
+      vision: "Vision"
+      team: "The team"
+    new:
+      title: "Add a company"

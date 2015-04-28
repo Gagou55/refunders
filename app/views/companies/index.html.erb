@@ -1,2 +1,12 @@
-<h1>Companies#index</h1>
-<p>Find me in app/views/companies/index.html.erb</p>
+<div class="container">
+  <div class="row">
+  <h1 class="text-center"><%= t '.title', count: @companies.size %></h1>
+
+  <% @companies.each do |company| %>
+    <%= link_to  company_path(company[:id]) do %>
+      <%= image_tag company.logo %>
+      <%= company.name %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
