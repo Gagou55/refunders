@@ -1,3 +1,22 @@
 /* -------------------------------------
  * You killer form SASS module
  * ------------------------------------- */
+
+
+ .card {
+  text-align: left;
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 20px 20px 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.top {
+  width:100%;
+  background-color: black;
+
+}
