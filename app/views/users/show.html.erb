@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-3 text-center">
+
+
+      <%= @user.first_name %>
+      <%= @user.last_name %> <br><br>
+      <%= @user.address %> <br>
+      <%= link_to edit_user_path(current_user[:id]) do %>
+        <i class="fa fa-cog fa-spin"></i> <%= t ".profile", default: "Modifier votre profil" %>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      <% end %>
+    </div>
+
+
+
+  </div>
+</div>
+
