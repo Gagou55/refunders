@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   ActiveAdmin.routes(self)
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'registrations' }
 
   namespace :account do
     resources :announces
@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
   resources :companies, only: [:show, :index, :new]
 
-  resources :users, only: [:show, :update, :edit]
+  resources :users, only: [:show]
 end
 

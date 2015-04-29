@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+  var onPlaceChanged = function() {
+    console.log("Place changed");
+  }
+
   function initializeAutocomplete(id) {
     var element = document.getElementById(id);
     if (element) {
