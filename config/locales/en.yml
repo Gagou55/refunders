@@ -21,6 +21,9 @@
 
 en:
   hello: "Hello world"
+  account:
+    announces:
+      add: 'Add a company'
   companies:
     index:
       title:

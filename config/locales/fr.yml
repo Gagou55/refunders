@@ -1,4 +1,7 @@
 fr:
+  account:
+    announces:
+      add: 'Ajouter une compagnie'
   companies:
     index:
       title:

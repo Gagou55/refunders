@@ -3,6 +3,7 @@
     <div class="col-sm-6 col-sm-offset-3">
       <%= simple_form_for(@announce, url: @announce.new_record? ? account_announces_path : account_announce_path(@announce)) do |f| %>
       <%= f.association :company %>
+      <%= link_to t('account.announces.add'), new_company_path, remote: true, class: "add-company" %>
       <%= f.input :title %>
       <%= f.input :price %>
       <%= f.input :kind %>
