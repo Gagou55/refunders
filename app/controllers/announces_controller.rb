@@ -1,7 +1,11 @@
 class AnnouncesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @announces = Announce.all
+    if params[:search_sector]
+      @announces = Announce.search(params[:search_sector])
+    else
+      @announces = Announce.all
+    end
   end
 
   # def new
