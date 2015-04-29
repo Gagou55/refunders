@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429141847) do
+ActiveRecord::Schema.define(version: 20150429164001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20150429141847) do
   create_table "announces", force: :cascade do |t|
     t.string   "title"
     t.integer  "price"
-    t.string   "kind"
     t.integer  "number_of_share"
     t.text     "reason"
     t.boolean  "published"
@@ -43,9 +42,11 @@ ActiveRecord::Schema.define(version: 20150429141847) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "cancelled"
+    t.integer  "kind_id"
   end
 
   add_index "announces", ["company_id"], name: "index_announces_on_company_id", using: :btree
+  add_index "announces", ["kind_id"], name: "index_announces_on_kind_id", using: :btree
   add_index "announces", ["user_id"], name: "index_announces_on_user_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
@@ -61,14 +62,21 @@ ActiveRecord::Schema.define(version: 20150429141847) do
     t.integer  "ipo_company_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "sector"
+    t.integer  "sector_id"
   end
 
   add_index "companies", ["ipo_company_id"], name: "index_companies_on_ipo_company_id", using: :btree
+  add_index "companies", ["sector_id"], name: "index_companies_on_sector_id", using: :btree
 
   create_table "ipo_companies", force: :cascade do |t|
     t.string   "name"
     t.string   "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kinds", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,6 +90,12 @@ ActiveRecord::Schema.define(version: 20150429141847) do
 
   add_index "purchases", ["announce_id"], name: "index_purchases_on_announce_id", using: :btree
   add_index "purchases", ["user_id"], name: "index_purchases_on_user_id", using: :btree
+
+  create_table "sectors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -115,8 +129,10 @@ ActiveRecord::Schema.define(version: 20150429141847) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "announces", "companies"
+  add_foreign_key "announces", "kinds"
   add_foreign_key "announces", "users"
   add_foreign_key "companies", "ipo_companies"
+  add_foreign_key "companies", "sectors"
   add_foreign_key "purchases", "announces"
   add_foreign_key "purchases", "users"
 end

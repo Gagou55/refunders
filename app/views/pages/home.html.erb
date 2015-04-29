@@ -24,6 +24,15 @@
         available without you adding any controller or touching the <code>config/routes.rb</code> file!
       </p>
 
+      <%= form_tag announces_path, :id => 'search_welcome', method: :get do %>
+
+        <%= select_tag :search_sector, options_from_collection_for_select(Sector.all, "id", "name", params[:search_sector]) %>
+        <%= select_tag :search_kind, options_from_collection_for_select(Kind.all, "id", "name", params[:search_kind]) %>
+
+
+        <%= submit_tag "Search" , class: "btn btn-primary btn-search" %>
+      <% end %>
+
       <p><%= link_to "Ajouter une annonce", new_account_announce_path %></p>
       <p><%= link_to "Voir toutes les annonces", announces_path %></p>
       <li>
