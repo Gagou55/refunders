@@ -116,13 +116,13 @@ ActiveRecord::Schema.define(version: 20150429164001) do
     t.integer  "zip_code"
     t.string   "city"
     t.integer  "phone"
-    t.boolean  "admin",                  default: false, null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
     t.string   "name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.boolean  "admin",                  default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
