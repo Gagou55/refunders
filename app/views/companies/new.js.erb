@@ -1,0 +1,10 @@
+// $("#new_announce .form-group").first().after(new_company);
+// new_company.slideDown();
+// $(".add-company").hide();
+
+
+
+var new_company = $("<%= j render 'new' %>").hide()
+$("#new_announce .form-group").first().after(new_company);
+new_company.slideDown(1000);
+$(".add-company").hide();

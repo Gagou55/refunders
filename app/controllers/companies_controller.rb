@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+skip_before_filter  :verify_authenticity_token
   def index
     @companies = Company.all
   end
@@ -9,12 +10,17 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @company = Company.new(company_params)
     if @company.save
-      redirect_to new_announce_path
+      redirect_to :back
     else
       render :new
     end
