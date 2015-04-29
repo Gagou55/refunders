@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :purchases, only: [:new, :create]
   end
   resources :companies, only: [:show, :index, :new]
+  resources :users, only: [:show, :new, :edit, :update]
 end
 

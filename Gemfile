@@ -15,6 +15,8 @@ gem "aws-sdk", "< 2.0"
 gem "faker"
 gem 'activeadmin', github: 'activeadmin'
 
+gem 'coffee-rails'
+
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
