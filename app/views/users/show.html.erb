@@ -10,9 +10,11 @@
       <%= link_to edit_user_registration_path(current_user.id) do %>
         <i class="fa fa-cog fa-spin"></i> <%= t ".profile", default: "Modifier votre profil" %>
         <br>
+
+      <%= link_to "Voir mes annonces", account_announces_path %>
+
         <br>
-        <br>
-        <br>
+      <%= link_to "Ajouter une annonce", new_account_announce_path %>
         <br>
         <br>
         <br>
