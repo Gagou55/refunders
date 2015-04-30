@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20150429164001) do
     t.integer  "ipo_company_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "sector"
     t.integer  "sector_id"
   end
 
