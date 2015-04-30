@@ -17,15 +17,14 @@ module Account
       @company = Company.new
       if @announce.save
         redirect_to announce_path(@announce)
-        flash[:notice] = "Votre annonce est en attente de mise en ligne"
+        flash[:notice] = "Votre annonce est en cours de validation"
       else
         render :new
       end
     end
 
     def show
-
-
+      @purchase = current_user.purchases.new
     end
 
     def update

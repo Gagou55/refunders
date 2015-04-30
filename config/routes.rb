@@ -8,9 +8,15 @@ Rails.application.routes.draw do
     resources :announces
   end
 
+  namespace :account do
+    resources :purchases
+  end
+
   resources :announces do
     resources :purchases, only: [:new, :create]
   end
+
+  resources :purchases, only: [:show]
 
   resources :companies, only: [:show, :index, :new, :create]
 
