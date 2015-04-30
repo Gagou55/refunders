@@ -1,4 +1,7 @@
 class Announce < ActiveRecord::Base
+
+  after_create :send_unpublished_announce_email
+
   belongs_to :company
   belongs_to :user
   belongs_to :kind
@@ -15,6 +18,12 @@ class Announce < ActiveRecord::Base
     else
       find(:all)
     end
+  end
+
+  private
+
+  def send_unpublished_announce_email
+    UserMailer.unpublished_announce(self).deliver
   end
 
 end

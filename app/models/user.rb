@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_create :send_welcome_email
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [ :facebook ]
@@ -27,4 +29,11 @@ class User < ActiveRecord::Base
   # validates :zip_code, presence: true
   # validates :city, presence: true
   # validates :email, presence: true, uniqueness: true
+
+    private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver
+  end
+
 end
