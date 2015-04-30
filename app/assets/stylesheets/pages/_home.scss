@@ -1,0 +1,32 @@
+#banner {
+  top:0;
+  // position:relative;
+  height: 600px;
+  background-image: image-url('bg.png');
+  background-size: cover;
+  // z-index:1;
+}
+
+// .search-bar-back {
+//     position:relative;
+//     height:112px;
+//     z-index: 2;
+//     background-color: rgba(50,50,50,0.5);
+// }
+
+h1 {
+  position: relative;
+  padding-top:170px;
+  font-size:80px;
+  font-weight: 600;
+  color: #6F9283;
+  text-transform: uppercase;
+  z-index:3;
+}
+
+h2 {
+  font-family: $adel;
+  color:white;
+  font-size:24px;
+}
+

@@ -5,4 +5,24 @@
  * already a Bootstrap SCSS variable that does the same job
  * ------------------------------------- */
 
+/* ----- couleur fond ------ */
 
+
+.back-color {
+  position: relative;
+  background-color : rgba(143,214,148,0.5);
+  z-index:2;
+  height:100%
+}
+
+
+.pt-70 {
+  padding-top: 70px;
+}
+
+.logo {
+  font-size:20px;
+  color: black;
+  padding-top:0px;
+  margin-top:15px;
+}
