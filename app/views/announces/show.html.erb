@@ -1,8 +1,15 @@
-<h1> Nouvelle annonce </h1>
-<p><%= @announce.title %></p>
-<p><%= @announce.price %></p>
-<p><%= @announce.kind %></p>
-<p><%= @announce.number_of_share %></p>
+<div class="container">
+  <div class="row">
+    <h1><%= @announce.title %></h1>
+    <p><%= @announce.company.name %></p>
+    <p><%= "#{@announce.number_of_share} #{@announce.kind.name}" %></p>
+    <p><%= "#{@announce.price}€" %></p>
 
+    <%= link_to "Back", root_path %>
+  </div>
 
-<%= link_to "Back", root_path %>
+  <%= form_for @purchase, url: announce_purchases_path(@announce), method: :post do |f| %>
+    <%= f.hidden_field :announce_id, value: @announce.id %>
+    <%= f.submit "Purchase" , class: "btn btn-primary btn-search" %>
+  <% end %>
+</div>
