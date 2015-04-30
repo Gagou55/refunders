@@ -49,7 +49,7 @@ module Account
     private
 
     def announce_params
-      params.require(:announce).permit(:title, :price, :kind, :number_of_share, :reason, :company_id)
+      params.require(:announce).permit(:title, :price, :kind_id, :number_of_share, :reason, :company_id)
     end
 
     def find_announce

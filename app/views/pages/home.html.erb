@@ -23,15 +23,17 @@
         just create a file in the <code>app/views/pages</code> folder, the route will be automatically
         available without you adding any controller or touching the <code>config/routes.rb</code> file!
       </p>
-
+    <div class="form-inline">
       <%= form_tag announces_path, :id => 'search_welcome', method: :get do %>
-
-        <%= select_tag :search_sector, options_from_collection_for_select(Sector.all, "id", "name", params[:search_sector]) %>
-        <%= select_tag :search_kind, options_from_collection_for_select(Kind.all, "id", "name", params[:search_kind]) %>
-
+        <%= select_tag(:search_sector, options_from_collection_for_select(Sector.all, "id", "name", params[:search_sector]), {:class => "form-control"}) %>
+        <%= select_tag(:search_kind, options_from_collection_for_select(Kind.all, "id", "name", params[:search_kind]), {:class => "form-control"}) %>
+        <%= text_field_tag(:min_price, params[:min_price], {:class => "form-control", :placeholder => "Prix Min"}) %>
+        <%= text_field_tag(:max_price, params[:max_price], {:class => "form-control", :placeholder => "Prix Max"}) %>
 
         <%= submit_tag "Search" , class: "btn btn-primary btn-search" %>
       <% end %>
+    </div>
+
 
       <p><%= link_to "Ajouter une annonce", new_account_announce_path %></p>
       <p><%= link_to "Voir toutes les annonces", announces_path %></p>
