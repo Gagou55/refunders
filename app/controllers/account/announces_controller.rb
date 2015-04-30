@@ -12,10 +12,12 @@ module Account
     end
 
     def create
+
       @announce = current_user.announces.new(announce_params)
       @company = Company.new
       if @announce.save
         redirect_to announce_path(@announce)
+        flash[:notice] = "Votre annonce est en attente de mise en ligne"
       else
         render :new
       end
