@@ -6,7 +6,7 @@
       <%= link_to t('account.announces.add'), new_company_path, remote: true, class: "add-company" %>
       <%= f.input :title %>
       <%= f.input :price %>
-      <%= f.input :kind %>
+      <%= f.association :kind %>
       <%= f.input :number_of_share %>
       <%= f.input :reason %>
       <%= f.submit %>

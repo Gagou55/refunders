@@ -1,28 +1,25 @@
 class AnnouncesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @companies = Company.where("sector = ?", params[:search_sector])
-    @company_id = []
-    @companies.each do |company|
-      @companies_id << company.id
-    end
-    # Récupérer toutes les annonces dont la company est comprise dans @company
+    @companies = Company.where("sector_id = ?", params[:search_sector])
+
     @announces = []
-    @companies_id.each do |id|
-      Announce.all.each do |announce|
-        @announces << announce if (announce.company_id = id)
-      end
 
-      # @kind = Kind.find_by_name(params[:kind])
-      # @new_announces = @announces.where("kind_id = ?", @kind.id)
+    @companies.each do |company|
+      company.announces.each do |announce|
+        @announces << announce
+      end
     end
 
+    @announces = @announces.select { |announce| announce.kind_id.to_s == params[:search_kind] }
 
-    # if params[:search_sector]
-    #   @announces = Announce.search(params[:search_sector])
-    # else
-    #   @announces = Announce.all
-    # end
+    min_price = params[:min_price]
+    max_price = params[:max_price]
+
+    @announces = @announces.select { |announce| announce.price >= min_price.to_i } if min_price.present?
+    @announces = @announces.select { |announce| announce.price <= max_price.to_i } if max_price.present?
+
+    @announces
   end
 
   # def new
@@ -64,7 +61,7 @@ class AnnouncesController < ApplicationController
   private
 
   def announce_params
-    params.require(:announce).permit(:title, :price, :kind, :number_of_share, :reason, :company_id)
+    params.require(:announce).permit(:title, :price, :number_of_share, :reason, :company_id, :kind_id)
   end
 
 end
