@@ -11,6 +11,7 @@ class AnnouncesController < ApplicationController
       end
     end
 
+    @announces = @announces.select { |announce| announce.published == true }
     @announces = @announces.select { |announce| announce.kind_id.to_s == params[:search_kind] }
 
     min_price = params[:min_price]
