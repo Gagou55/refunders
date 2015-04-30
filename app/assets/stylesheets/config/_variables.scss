@@ -8,14 +8,14 @@ $header-font: "Montserrat", "sans-serif";
 $navbar-font: 'Raleway', "sans-serif";
 
 // Local fonts (uncomment following lines)
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "Font Name";
+  src: font-url('adele-light-webfont.eot');
+  src: font-url('adele-light-webfont.eot?#iefix') format('embedded-opentype'),
+       font-url('adele-light-webfont.woff') format('woff'),
+       font-url('adele-light-webfont.ttf') format('truetype')
+}
+$adel: "Font Name";
 
 // Font-size and line-height
 $base-size: 16px;
@@ -31,6 +31,7 @@ $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
 $purple: #6452BD;
+$green-lighten: lighten(#8FD694, 50%);
 
 // Gray scale
 $gray-darker:  lighten(#000, 13.5%); // #222
@@ -38,3 +39,4 @@ $gray-dark:    lighten(#000, 20%);   // #333
 $gray:         lighten(#000, 33.5%); // #555
 $gray-light:   lighten(#000, 46.7%); // #777
 $gray-lighter: lighten(#000, 93.5%); // #eee
+// $green-lighten: Lighten(#8FD694, 80.5%);
