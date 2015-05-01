@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row">
+    <% @purchases.each do |purchase| %>
+     <%= purchase.announce.company.name %>
+    <% end %>
+  </div>
+</div>

@@ -11,15 +11,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
-  <%= render 'shared/notices' %>
+  <div class="wrap">
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+    <%= render 'shared/notices' %>
 
-  <%= yield %>
+
+    <%= yield %>
+    <div class="push"></div>
+  </div>
+
 
   <%= javascript_include_tag :application %>
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyAUKcr-n3L36uxBHjL_kC1Fd7z-5GkYjNE" %>
   <%= yield(:after_js) %>
 
+  <%= render 'shared/footer' %>
+
+
+
 </body>
+
 </html>

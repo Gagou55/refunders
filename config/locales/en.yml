@@ -63,8 +63,12 @@ en:
       connect_with_id: 'Or connect with your account'
       facebook: 'Connect with Facebook'
       linkedin: 'Connect with Linkedin'
+  pages:
+    catch_sentence: 'A different vision of crowdfunding'
+    some_announces: 'Last announces'
   shared:
       profile: 'Profile'
       my_announces: 'My Announces'
+      my_portfolio: 'My Portfolio'
       sign_out: 'Sign Out'
       add_announce: 'Sell'

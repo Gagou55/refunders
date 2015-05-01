@@ -35,3 +35,24 @@
 .clear {
   clear:both;
 }
+
+
+* {
+  margin: 0;
+}
+
+body, html, .wrap {
+  height: 100%;
+  background-color: #f0f1f5;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+  height: 100%;
+  margin: 0 auto -55px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+  height: 55px; /* .push must be the same height as .footer */
+  background-color: rgb(139, 122, 122);
+}

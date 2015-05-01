@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :purchases, only: [:new, :create]
   end
 
-  resources :purchases, only: [:show]
+  resources :purchases, only: [:show, :index]
 
   resources :companies, only: [:show, :index, :new, :create]
 
