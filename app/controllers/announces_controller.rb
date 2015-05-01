@@ -38,11 +38,11 @@ class AnnouncesController < ApplicationController
   # end
 
   def show
-    @announce = Announce.where(published: true, id: params[:id]).first
+    @announce = Announce.find(params[:id])
     if user_signed_in?
       @purchase = current_user.purchases.new
     else
-      @announce = Announce.where(published: true, id: params[:id]).first
+      @announce
     end
   end
 

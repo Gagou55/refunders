@@ -35,6 +35,7 @@ en:
     back: 'Back'
     purchase: 'Buy'
     register: 'Register'
+    root: 'Home'
     show:
       title: '%{name}'
       general_information: 'General informations'

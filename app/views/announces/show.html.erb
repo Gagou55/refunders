@@ -8,11 +8,13 @@
     <%= link_to t('announces.back'), root_path %>
   </div>
 
-  <% if user_signed_in? %>
+  <% if user_signed_in? && !@announce.has_been_purchased? %>
     <%= form_for @purchase, url: announce_purchases_path(@announce), method: :post do |f| %>
       <%= f.hidden_field :announce_id, value: @announce.id %> <br>
       <%= f.submit t('announces.purchase') , class: "btn btn-primary btn-search" %>
     <% end %>
+  <% elsif user_signed_in? && @announce.has_been_purchased? %>
+    <%= link_to t('announces.root'), root_path, class: "btn btn-primary btn-search" %>
   <% else %>
     <%= link_to t('announces.register'), new_user_registration_path, class: "btn btn-primary btn-search" %>
   <% end %>
