@@ -38,7 +38,7 @@ class AnnouncesController < ApplicationController
   # end
 
   def show
-    @announce = Announce.find(params[:id])
+    @announce = Announce.where(published: true, id: params[:id]).first
     @purchase = current_user.purchases.new
   end
 

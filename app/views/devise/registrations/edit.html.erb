@@ -26,7 +26,7 @@
         <%= f.text_field :last_name, class: "form-control"  %></div>
 
         <div class="form-group"><%= f.label :address %> <br />
-        <%= f.text_field :address, id: "user_input_autocomplete_address", placeholder: "Start typing your address", class: "form-control"  %></div>
+        <%= f.text_field :address, id: "user_input_autocomplete_address", placeholder: t('devise.registrations.address_placeholder'), class: "form-control"  %></div>
 
         <div class="form-group"><%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it") %>)</i>
          <%= f.password_field :password, autocomplete: :off, class: "form-control" %>

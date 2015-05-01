@@ -1,11 +1,14 @@
-<h1> Nouvelle annonce </h1>
-<p><%= @announce.title %></p>
-<p><%= @announce.price %></p>
-<p><%= @announce.kind %></p>
-<p><%= @announce.number_of_share %></p>
+<div class="container">
+  <div class="row">
+    <h1><%= @announce.title %></h1>
+    <p><%= @announce.company.name %></p>
+    <p><%= @announce.price %></p>
+    <p><%= @announce.kind.name %></p>
+    <p><%= @announce.number_of_share %></p>
 
 
-<%= link_to "Back", account_announces_path %>
-<%= link_to "Delete", account_announce_path, method: :delete, data: {confirm: "Are you sure ?"}, class: 'btn btn-default' %>
-<%= link_to "Edit", edit_account_announce_path %>
-
+    <%= link_to t('account.announces.back'), account_announces_path, class: 'btn btn-primary' %>
+    <%= link_to t('account.announces.delete'), account_announce_path, method: :delete, data: {confirm: "Are you sure ?"}, class: 'btn btn-danger' %>
+    <%= link_to t('account.announces.edit'), edit_account_announce_path, class: 'btn btn-primary' %>
+  </div>
+</div>
