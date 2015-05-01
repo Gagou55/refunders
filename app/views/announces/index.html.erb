@@ -1,18 +1,22 @@
-<div class="container">
-  <div class="row" id="announce-result-card">
+<div class="container index-announces">
+  <div class="row">
     <% @announces.each do |announce| %>
-    <ul>
-      <div class= "result-card">
-        <div class= "col-xs-12 col-md-6">
-          <li> <%= link_to announce.title, announce %> </li>
-          <li> <%= "#{announce.number_of_share} #{announce.kind.name}" %> </li>
+      <div class= "col-xs-12">
+        <div class="white_card">
+          <div class="row">
+            <div class="col-xs-2">
+              <%= link_to announce.title, announce %>
+              <%= "#{announce.number_of_share} #{announce.kind.name}" %>
+            </div>
+            <div class="col-xs-3>">
+              <%= t('announces.sell_price') %> <%= "#{announce.price} €" %>
+            </div>
+            <div class="col-xs-3>">
+              <%= link_to t('announces.display'), announce, class: "btn btn-primary" %>
+            </div>
+          </div> <br>
         </div>
-        <div class= "col-xs-12 col-md-6">
-          <li> <%= t('announces.sell_price') %> <%= "#{announce.price} €" %> </li>
-          <li> <%= link_to t('announces.display'), announce, class: "btn btn-primary" %> </li>
-        </div>
-      </div> <br>
-    </ul>
+      </div>
     <% end %>
   </div>
 </div>

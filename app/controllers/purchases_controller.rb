@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  before_action :find_purchase, only: [:show, :destroy ]
+  before_action :find_purchase, only: [:show, :destroy, :index ]
 
 
   def index
