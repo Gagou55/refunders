@@ -45,8 +45,6 @@ Home
     </div>
   </div>
   <div class="container">
-      <% @announces = Announce.all %>
-      <% @announces = @announces.sample(3) %>
       <% @announces.each do |announce| %>
       <ul>
         <div class= "result-card">
