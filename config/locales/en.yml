@@ -63,3 +63,8 @@ en:
       connect_with_id: 'Or connect with your account'
       facebook: 'Connect with Facebook'
       linkedin: 'Connect with Linkedin'
+  shared:
+      profile: 'Profile'
+      my_announces: 'My Announces'
+      sign_out: 'Sign Out'
+      add_announce: 'Sell'
