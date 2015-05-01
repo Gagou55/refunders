@@ -134,7 +134,6 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.1)
-    high_voltage (2.3.0)
     i18n (0.7.0)
     i18n_data (0.6.3)
     inherited_resources (1.6.0)
@@ -306,7 +305,6 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
-  high_voltage
   jquery-rails
   letter_opener
   omniauth-facebook
