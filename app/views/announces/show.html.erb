@@ -16,23 +16,23 @@
 
 <div class="container">
   <div class="row">
-  <h1><%= t '.title', name: @announce.company.name %></h1>
+  <h1 class = "text-center"><%= t '.title', name: @announce.company.name %></h1>
   <%= image_tag @announce.company.logo %> <br>
   <%= @announce.company.summary %>
 
-  <h2 id="general_information_company"><%= t '.general_information' %></h2>
+  <h2 id="general_information_company" class = "text-center"><%= t ('announces.show.general_information') %></h2>
   <%= @announce.company.general_information %>
 
-  <h2 id="business_model_company"><%= t '.business_model' %></h2>
+  <h2 id="business_model_company" class = "text-center"><%= t '.business_model' %></h2>
   <%= @announce.company.business_model %>
 
-  <h2 id="development_company"><%= t '.development' %></h2>
+  <h2 id="development_company" class = "text-center"><%= t '.development' %></h2>
   <%= @announce.company.development %>
 
-  <h2 id="vision_company"><%= t '.vision' %></h2>
+  <h2 id="vision_company" class = "text-center"><%= t '.vision' %></h2>
   <%= @announce.company.vision %>
 
-  <h2 id="team_company"><%= t '.team' %></h2>
+  <h2 id="team_company" class = "text-center"><%= t '.team' %></h2>
   <%= @announce.company.team %>
 
   </div>
