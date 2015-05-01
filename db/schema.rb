@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430103457) do
+ActiveRecord::Schema.define(version: 20150501102914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,12 +58,15 @@ ActiveRecord::Schema.define(version: 20150430103457) do
     t.text     "vision"
     t.text     "swot"
     t.text     "team"
-    t.string   "logo"
     t.integer  "ipo_company_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "sector"
     t.integer  "sector_id"
+    t.string   "logo"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "companies", ["ipo_company_id"], name: "index_companies_on_ipo_company_id", using: :btree
@@ -117,13 +120,17 @@ ActiveRecord::Schema.define(version: 20150430103457) do
     t.integer  "zip_code"
     t.string   "city"
     t.integer  "phone"
+    t.boolean  "admin",                  default: false, null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
     t.string   "name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.boolean  "admin",                  default: false, null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

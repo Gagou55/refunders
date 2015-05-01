@@ -29,7 +29,7 @@ skip_before_filter  :verify_authenticity_token
   private
 
   def company_params
-    params.require(:company).permit( :name, :summary, :general_information, :business_model, :development, :vision, :swot, :team, :logo, :IPO_company_id)
+    params.require(:company).permit( :name, :summary, :general_information, :business_model, :development, :vision, :swot, :team, :logo, :ipo_company_id)
   end
 
 end

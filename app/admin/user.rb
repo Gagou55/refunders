@@ -20,7 +20,7 @@ permit_params :first_name, :last_name, :address, :zip_code, :city, :phone, :emai
     column :city
     column :phone
     column :email
-    column :created_at
+    # column :created_at
     column :admin
     actions
   end
