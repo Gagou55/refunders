@@ -3,21 +3,67 @@
   background-color: #A27E8E;
   padding-bottom: 10px;
   padding-top: 10px;
-  }
+}
 
-  .announces {
+.announces {
     background-color: #f0f1f5;
     height:auto
-  }
+}
 
-  .white_card {
+.white_card {
   text-align: left;
   background-color: #fff;
   margin: 20px auto;
-  padding: 20px 20px 0;
+  // padding: 20px 20px 0;
   border-radius: 2px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   font-weight: 300;
   font-size: 15px;
   line-height: 1.6;
+  height: 100px;
+
+  .center_img {
+    margin-top:13px;
+    margin-left:10px;
+    margin-right:10px;
+    border: 1px solid grey;
   }
+
+  .float-left{
+    float:left;
+  }
+
+  .float-right{
+    float:right;
+  }
+
+  .title{
+    padding-top:20px;
+    color:green;
+  }
+
+  .price{
+    padding-top:20px;
+    color:black;
+  }
+
+  h5 {
+    padding-top:0;
+  }
+}
+
+.nos_annonces {
+  width:100%;
+
+  h2 {
+    color: black;
+    font-family: Open Sans, Helvetica, sans-serif;
+    padding-top:40px;
+    margin-top:0;
+
+  }
+}
+
+.back_announce {
+  background-color:#f0f1f5
+}

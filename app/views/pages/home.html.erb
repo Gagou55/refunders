@@ -44,22 +44,36 @@ Home
       </div>
     </div>
   </div>
+  <div class="nos_annonces back_announce">
+    <h2 class="text-center"> Quelques annonces </h2>
+    <div class="container">
+      <div class="row">
+        <% @announces.each do |announce| %>
+          <div class= "result-card">
+            <div class= "col-xs-12">
+              <div class="white_card">
+                <div class="row">
+                  <div class="col-xs-2">
+                    <%= link_to announce_path(announce[:id]) do %>
+                      <%= image_tag announce.company.logo , width: 75, :class => "center_img float-left"%>
+                    <% end %>
+                  </div>
+                  <div class="col-xs-3>">
+                    <div class="title"><%= announce.title %></div>
+                    <p class="number_share float-left "><%= "Nombre de Parts: #{announce.number_of_share}" %></p>
+                  </div>
+                  <div class="col-xs-3>">
+                    <div class="price float-left"><%= "Prix de vente: #{announce.price} €" %></div>
+                  </div>
 
-  <div class="container">
-      <% @announces.each do |announce| %>
-      <ul>
-        <div class= "result-card">
-          <div class= "col-xs-12 col-md-6">
-            <li> <%= link_to announce.title, announce %> </li>
-            <li> <%= "#{announce.number_of_share} #{announce.kind.name}" %> </li>
+                  <div class="col-xs-4>">
+                  <%= link_to "Voir l'annonce", announce, class: "btn btn-primary float-right mr-20" %>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class= "col-xs-12 col-md-6">
-            <li> <%= "Prix de vente: #{announce.price} €" %> </li>
-            <li> <%= link_to "Voir l'annonce", announce, class: "btn btn-primary" %> </li>
-          </div>
-        </div> <br>
-      </ul>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
