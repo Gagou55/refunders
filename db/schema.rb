@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501085925) do
+ActiveRecord::Schema.define(version: 20150501102914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,11 +58,15 @@ ActiveRecord::Schema.define(version: 20150501085925) do
     t.text     "vision"
     t.text     "swot"
     t.text     "team"
-    t.string   "logo"
     t.integer  "ipo_company_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "sector_id"
+    t.string   "logo"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "companies", ["ipo_company_id"], name: "index_companies_on_ipo_company_id", using: :btree
