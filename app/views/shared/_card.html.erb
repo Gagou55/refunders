@@ -1,0 +1,12 @@
+<div class="col-md-12">
+  <div class="white-card">
+    <%= link_to announce_path(announce[:id]) do %>
+              <%= image_tag announce.picture.url(:medium) , width: 200, :class => "card relative" %>
+    <% end %>
+
+    <%= announce.title %>
+    <%= announce.kind.name %>
+    <%= announce.compagnie.sector %>
+
+  </div>
+</div>
