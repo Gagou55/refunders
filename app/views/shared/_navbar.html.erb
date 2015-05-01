@@ -64,9 +64,15 @@
             <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
           </li>
         <% end %>
-        <li>
-          <%= link_to t(".top_call_to_action", default: t('shared.add_announce')), new_account_announce_path(current_user[:id]), class: "btn btn-danger", id: "sell" %>
-        </li>
+        <% if user_signed_in? %>
+            <li>
+              <%= link_to t(".top_call_to_action", default: t('shared.add_announce')), new_account_announce_path(current_user[:id]), class: "btn btn-danger", id: "sell" %>
+            </li>
+          <% else  %>
+            <li>
+              <%= link_to t(".top_call_to_action", default: t('shared.add_announce')), new_user_registration_path, class: "btn btn-danger", id: "sell" %>
+            </li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
