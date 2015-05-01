@@ -30,7 +30,7 @@ require 'faker'
     number_of_share: rand(10..200),
     reason: Faker::Lorem.sentence(3),
     published: random_boolean = true,
-    company_id: 11,
+    company_id: 2,
     user_id: 5,
   })
   announce.save
