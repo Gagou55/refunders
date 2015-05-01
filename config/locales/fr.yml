@@ -12,6 +12,8 @@ fr:
     display: "Voir l'annonce"
     back: 'Retour'
     purchase: 'Acheter'
+    register: "S'enregistrer"
+    root: 'Accueil'
     show:
       title: "%{name}"
       general_information: "Informations Générales"
@@ -41,3 +43,12 @@ fr:
       connect_with_id: 'Ou connectez-vous avec vos identifiants'
       facebook: 'Connectez-vous avec Facebook'
       linkedin: 'Connectez-vous avec Linkedin'
+  pages:
+    catch_sentence: 'A different vision of crowdfunding'
+    some_announces: 'Dernières annonces'
+  shared:
+    profile: 'Mon Profil'
+    my_announces: 'Mes Annonces'
+    my_portfolio: 'Mon Portefeuille'
+    sign_out: 'Se deconnecter'
+    add_announce: 'Vendre'
