@@ -34,6 +34,7 @@ en:
     display: 'Show'
     back: 'Back'
     purchase: 'Buy'
+    register: 'Register'
     show:
       title: '%{name}'
       general_information: 'General informations'
