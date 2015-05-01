@@ -5,11 +5,35 @@
     <p><%= "#{@announce.number_of_share} #{@announce.kind.name}" %></p>
     <p><%= "#{@announce.price}€" %></p>
 
-    <%= link_to "Back", root_path %>
+    <%= link_to t('announces.back'), root_path %>
   </div>
 
   <%= form_for @purchase, url: announce_purchases_path(@announce), method: :post do |f| %>
-    <%= f.hidden_field :announce_id, value: @announce.id %>
-    <%= f.submit "Purchase" , class: "btn btn-primary btn-search" %>
+    <%= f.hidden_field :announce_id, value: @announce.id %> <br>
+    <%= f.submit t('announces.purchase') , class: "btn btn-primary btn-search" %>
   <% end %>
+</div>
+
+<div class="container">
+  <div class="row">
+  <h1><%= t '.title', name: @announce.company.name %></h1>
+  <%= image_tag @announce.company.logo %> <br>
+  <%= @announce.company.summary %>
+
+  <h2 id="general_information_company"><%= t '.general_information' %></h2>
+  <%= @announce.company.general_information %>
+
+  <h2 id="business_model_company"><%= t '.business_model' %></h2>
+  <%= @announce.company.business_model %>
+
+  <h2 id="development_company"><%= t '.development' %></h2>
+  <%= @announce.company.development %>
+
+  <h2 id="vision_company"><%= t '.vision' %></h2>
+  <%= @announce.company.vision %>
+
+  <h2 id="team_company"><%= t '.team' %></h2>
+  <%= @announce.company.team %>
+
+  </div>
 </div>

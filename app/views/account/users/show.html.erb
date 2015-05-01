@@ -3,7 +3,7 @@
     <%= image_tag current_user.picture(:medium), size: "200x200", class: "img-circle" %>
     <h1>
       <%= current_user.first_name %>
-      <%= link_to 'Edit my profile', edit_user_registration_path, class: "btn btn-primary" %>
+      <%= link_to t('account.users.edit'), edit_user_registration_path, class: "btn btn-primary" %>
     </h1>
 
   </div>

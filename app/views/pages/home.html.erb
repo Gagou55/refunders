@@ -1,9 +1,9 @@
 <%= content_for(:title) do %>
-  Home
+Home
 <% end %>
 
 <%= content_for(:description) do %>
-  <%# TODO %>
+<%# TODO %>
 <% end %>
 <div id="banner" class="text-center">
   <div class="back-color">
@@ -18,31 +18,49 @@
     </div>
 
 
-      <div class="form-inline pt-70 search-bar-back">
-        <%= form_tag announces_path, :id => 'search_welcome', method: :get do %>
-          <%= select_tag(:search_sector, options_from_collection_for_select(Sector.all, "id", "name", params[:search_sector]), {:class => "form-control"}) %>
-          <%= select_tag(:search_kind, options_from_collection_for_select(Kind.all, "id", "name", params[:search_kind]), {:class => "form-control"}) %>
-          <%= text_field_tag(:min_price, params[:min_price], {:class => "form-control", :placeholder => "Prix Min"}) %>
-          <%= text_field_tag(:max_price, params[:max_price], {:class => "form-control", :placeholder => "Prix Max"}) %>
+    <div class="form-inline pt-70 search-bar-back">
+      <%= form_tag announces_path, :id => 'search_welcome', method: :get do %>
+      <%= select_tag(:search_sector, options_from_collection_for_select(Sector.all, "id", "name", params[:search_sector]), {:class => "form-control"}) %>
+      <%= select_tag(:search_kind, options_from_collection_for_select(Kind.all, "id", "name", params[:search_kind]), {:class => "form-control"}) %>
+      <%= text_field_tag(:min_price, params[:min_price], {:class => "form-control", :placeholder => "Prix Min"}) %>
+      <%= text_field_tag(:max_price, params[:max_price], {:class => "form-control", :placeholder => "Prix Max"}) %>
 
-          <%= submit_tag "Search" , class: "btn btn-primary btn-search" %>
-        <% end %>
-      </div>
+      <%= submit_tag "Search" , class: "btn btn-primary btn-search" %>
+      <% end %>
+    </div>
 
 
-          <!-- <p><%= link_to "Ajouter une annonce", new_account_announce_path %></p>
-          <p><%= link_to "Voir toutes les annonces", announces_path %></p>
-          <li>
-            <%= link_to "Connexion", new_user_session_path %>
-          </li>
+        <!-- <p><%= link_to "Ajouter une annonce", new_account_announce_path %></p>
+        <p><%= link_to "Voir toutes les annonces", announces_path %></p>
+        <li>
+          <%= link_to "Connexion", new_user_session_path %>
+        </li>
         <!-- Facebook login -->
-         <!--  <li>
-            <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
+       <!--  <li>
+          <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
         </li> -->
 
 
       </div>
     </div>
   </div>
+  <div class="container">
+      <% @announces = Announce.all %>
+      <% @announces = @announces.sample(3) %>
+      <% @announces.each do |announce| %>
+      <ul>
+        <div class= "result-card">
+          <div class= "col-xs-12 col-md-6">
+            <li> <%= link_to announce.title, announce %> </li>
+            <li> <%= "#{announce.number_of_share} #{announce.kind.name}" %> </li>
+          </div>
+          <div class= "col-xs-12 col-md-6">
+            <li> <%= "Prix de vente: #{announce.price} €" %> </li>
+            <li> <%= link_to "Voir l'annonce", announce, class: "btn btn-primary" %> </li>
+          </div>
+        </div> <br>
+      </ul>
+      <% end %>
+    </div>
   </div>
 </div>

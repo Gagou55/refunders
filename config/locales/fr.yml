@@ -2,6 +2,23 @@ fr:
   account:
     announces:
       add: 'Ajouter une compagnie'
+      back: 'Retour'
+      delete: 'Supprimer'
+      edit: 'Modifier'
+    users:
+      edit: 'Modifier'
+  announces:
+    sell_price: 'Prix de vente:'
+    display: "Voir l'annonce"
+    back: 'Retour'
+    purchase: 'Acheter'
+    show:
+      title: "%{name}"
+      general_information: "Informations Générales"
+      business_model: "Business Model"
+      development: "Developpement"
+      vision: "Vision"
+      team: "L'équipe"
   companies:
     index:
       title:
@@ -17,3 +34,10 @@ fr:
       team: "L'équipe"
     new:
       title: "Ajouter une société"
+  devise:
+    registrations:
+      address_placeholder: 'Taper votre adresse'
+    sessions:
+      connect_with_id: 'Ou connectez-vous avec vos identifiants'
+      facebook: 'Connectez-vous avec Facebook'
+      linkedin: 'Connectez-vous avec Linkedin'
