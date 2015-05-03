@@ -26,10 +26,10 @@
           </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-                <% if current_user.picture == nil %>
-                  <%= image_tag "Business-Businessman.ico", class: "img-avatar" %>
-                <% else  %>
+                <% if current_user.picture.present? %>
                   <%= image_tag current_user.picture, class: "img-avatar" %>
+                <% else  %>
+                  <%= image_tag "Business-Businessman.ico", class: "img-avatar" %>
                 <% end %>
               Profile <span class="caret"></span>
             <% end %>
@@ -66,7 +66,7 @@
         <% end %>
         <% if user_signed_in? %>
             <li>
-              <%= link_to t(".top_call_to_action", default: t('shared.add_announce')), new_account_announce_path(current_user[:id]), class: "btn btn-danger", id: "sell" %>
+              <%= link_to t(".top_call_to_action", default: t('shared.add_announce')), new_account_announce_path(current_user[:id]), class: "btn btn-danger btn", id: "sell" %>
             </li>
           <% else  %>
             <li>

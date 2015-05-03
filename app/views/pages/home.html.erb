@@ -51,7 +51,7 @@ Home
         <% @announces.each do |announce| %>
             <div class= "col-xs-12">
               <div class="white_card">
-                <div class="row">
+                <div class="row" id="announce-home">
                   <div class="col-xs-2">
                     <%= link_to announce_path(announce[:id]) do %>
                       <%= image_tag announce.company.logo , width: 75, :class => "center_img float-left"%>
@@ -76,3 +76,64 @@ Home
       </div>
     </div>
   </div>
+
+  <div class="text-center partners-homepage">
+    <div class="container">
+      <div class="row">
+        <h2><%= t('pages.partners') %></h2> <br><br>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+          <%= link_to 'https://www.anaxago.com', :target => "_blank" do %>
+            <%= image_tag "anaxago.png" , width: 75 %>
+          <% end %>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-2">
+          <%= link_to 'https://happy-capital.com/', :target => "_blank" do %>
+            <%= image_tag "happycapital.png" , width: 75 %>
+          <% end %>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-2">
+          <%= link_to 'https://www.smartangels.fr/', :target => "_blank" do %>
+            <%= image_tag "smartangels.png" , width: 75 %>
+          <% end %>
+        </div>
+        <div class="col-xs-2" style="height: 75px;"></div>
+
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+          <%= link_to 'https://sowefund.com/', :target => "_blank" do %>
+            <%= image_tag "swf.png" , width: 75 %>
+          <% end %>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-2">
+          <%= link_to 'https://www.unilend.fr/', :target => "_blank" do %>
+            <%= image_tag "unilend.png" , width: 75 %>
+          <% end %>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-2">
+          <%= link_to 'https://www.wiseed.com/fr', :target => "_blank" do %>
+            <%= image_tag "wiseed.png" , width: 75 %>
+          <% end %>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center who-we-are">
+    <div class="container">
+      <div class="row">
+        <h2><%= t('pages.who-we-are') %></h2> <br><br>
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+          <p><%= t('pages.who-we-are-description') %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
