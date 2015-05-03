@@ -45,7 +45,10 @@ fr:
       linkedin: 'Connectez-vous avec Linkedin'
   pages:
     catch_sentence: 'A different vision of crowdfunding'
+    partners: 'Nos partenaires'
     some_announces: 'Dernières annonces'
+    who-we-are: 'Qui sommes-nous'
+    who-we-are-description: "Dans le paysage du crowdfunding, se développe de plus-en-plus de plateformes proposant une participation au capital contre investissement. Cependant, il est difficile voire impossible de sortir de cet investissement. C'est dans ce contexte que Refunders s'est créée, proposant une place de marché où chacun peut revendre ses participations en toute sécurité."
   shared:
     profile: 'Mon Profil'
     my_announces: 'Mes Annonces'

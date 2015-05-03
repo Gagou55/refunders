@@ -1,25 +1,31 @@
-<div class="container index-announces">
-  <div class="row">
-    <% @announces.each do |announce| %>
-      <div class= "col-xs-12">
-        <div class="white_card">
-          <div class="row">
-            <div class="col-xs-2">
-              <%= link_to announce.title, announce %>
-              <%= "#{announce.number_of_share} #{announce.kind.name}" %>
+<div class="nos_annonces back_announce">
+  <div class="container  index-announces">
+    <div class="row">
+      <% @announces.each do |announce| %>
+          <div class= "col-xs-12">
+            <div class="white_card">
+              <div class="row" id="announce-home">
+                <div class="col-xs-2">
+                  <%= link_to announce_path(announce[:id]) do %>
+                    <%= image_tag announce.company.logo , width: 75, :class => "center_img float-left"%>
+                  <% end %>
+                </div>
+                <div class="col-xs-3">
+                  <div class="title"><%= announce.title %></div>
+                  <p class="number_share float-left "><%= "Nombre de Parts: #{announce.number_of_share}" %></p>
+                </div>
+                <div class="col-xs-3">
+                  <p class="title"><%= "Nombre de Parts: #{announce.number_of_share}" %></p>
+                  <div class="number_share float-left"><%= "Prix de vente: #{announce.price} €" %></div>
+                </div>
+
+                <div class="col-xs-4">
+                <%= link_to "Voir l'annonce", announce, class: "btn btn-primary float-right mr-20 mt-30" %>
+              </div>
             </div>
-            <div class="col-xs-3>">
-              <%= t('announces.sell_price') %> <%= "#{announce.price} €" %>
-            </div>
-            <div class="col-xs-3>">
-              <%= link_to t('announces.display'), announce, class: "btn btn-primary" %>
-            </div>
-          </div> <br>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-
