@@ -13,8 +13,8 @@
 .white_card {
   text-align: left;
   background-color: #fff;
-  margin: 20px auto;
-  // padding: 20px 20px 0;
+  margin: 0 auto;
+  margin-bottom: 20px;
   border-radius: 2px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   font-weight: 300;
@@ -70,9 +70,6 @@
   }
 }
 
-.back_announce {
-  background-color:#f0f1f5;
-}
 
 .index-announces{
   padding-top: 150px;

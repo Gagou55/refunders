@@ -61,3 +61,21 @@
   <%= link_to t('announces.back'), root_path %>
 </div>
 
+<div class="container">
+  <div class="row">
+  <h2>Messages</h2>
+
+  <%= form_tag(announce_messages_path(@announce), method: :post) do %>
+    <%= text_field_tag :subject %>
+    <%= text_area_tag :body %>
+    <%= submit_tag 'Send email' %>
+  <% end %>
+
+  <% @announce.mailbox.conversations.each do |conversation| %>
+    <div>
+      <%= conversation.inspect %>
+    </div>
+  <% end %>
+  </div>
+</div>
+

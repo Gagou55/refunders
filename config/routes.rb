@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :announces do
+    resources :messages,  only: [:create]
     resources :purchases, only: [:new, :create]
   end
 

@@ -9,14 +9,44 @@ Home
   <div class="back-color">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <h1>The exit</h1>
-
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
           <h2><%= t('pages.catch_sentence') %></h2>
         </div>
       </div>
     </div>
+    <div class="nos_annonces back_announce">
+      <div class="container">
+        <div class="row">
+          <h4><%= t('pages.some_announces') %></h4>
+          <% @announces.each do |announce| %>
+              <div class= "col-xs-12">
+                <div class="white_card">
+                  <div class="row" id="announce-home">
+                    <div class="col-xs-2">
+                      <%= link_to announce_path(announce[:id]) do %>
+                        <%= image_tag announce.company.logo , width: 75, height:75, :class => "center_img float-left"%>
+                      <% end %>
+                    </div>
+                    <div class="col-xs-3">
+                      <div class="title"><%= announce.title %></div>
+                      <p class="number_share float-left "><%= "Nombre de Parts: #{announce.number_of_share}" %></p>
+                    </div>
+                    <div class="col-xs-3">
+                      <p class="title"><%= "Nombre de Parts: #{announce.number_of_share}" %></p>
+                      <div class="number_share float-left"><%= "Prix de vente: #{announce.price} €" %></div>
+                    </div>
 
+                    <div class="col-xs-4">
+                    <%= link_to "Voir l'annonce", announce, class: "btn btn-acide float-right mr-20 mt-30" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <h4><%= link_to t('pages.see_more'), announces_path, id:'see_more' %></h4>
+        </div>
+      </div>
+    </div>
 
     <div class="form-inline pt-70 search-bar-back">
       <%= form_tag announces_path, :id => 'search_welcome', method: :get do %>
@@ -25,7 +55,7 @@ Home
       <%= text_field_tag(:min_price, params[:min_price], {:class => "form-control", :placeholder => "Prix Min"}) %>
       <%= text_field_tag(:max_price, params[:max_price], {:class => "form-control", :placeholder => "Prix Max"}) %>
 
-      <%= submit_tag "Search" , class: "btn btn-primary btn-search" %>
+      <%= submit_tag "Search" , class: "btn btn-acide btn-search" %>
       <% end %>
     </div>
 
@@ -44,38 +74,7 @@ Home
       </div>
     </div>
   </div>
-  <div class="nos_annonces back_announce">
-    <h2 class="text-center"><%= t('pages.some_announces') %></h2>
-    <div class="container">
-      <div class="row">
-        <% @announces.each do |announce| %>
-            <div class= "col-xs-12">
-              <div class="white_card">
-                <div class="row" id="announce-home">
-                  <div class="col-xs-2">
-                    <%= link_to announce_path(announce[:id]) do %>
-                      <%= image_tag announce.company.logo , width: 75, :class => "center_img float-left"%>
-                    <% end %>
-                  </div>
-                  <div class="col-xs-3">
-                    <div class="title"><%= announce.title %></div>
-                    <p class="number_share float-left "><%= "Nombre de Parts: #{announce.number_of_share}" %></p>
-                  </div>
-                  <div class="col-xs-3">
-                    <p class="title"><%= "Nombre de Parts: #{announce.number_of_share}" %></p>
-                    <div class="number_share float-left"><%= "Prix de vente: #{announce.price} €" %></div>
-                  </div>
 
-                  <div class="col-xs-4">
-                  <%= link_to "Voir l'annonce", announce, class: "btn btn-primary float-right mr-20 mt-30" %>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
 
   <div class="text-center partners-homepage">
     <div class="container">

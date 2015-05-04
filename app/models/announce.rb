@@ -1,5 +1,7 @@
 class Announce < ActiveRecord::Base
 
+  acts_as_messageable
+
   after_create :send_unpublished_announce_email
 
   belongs_to :company
@@ -23,6 +25,15 @@ class Announce < ActiveRecord::Base
       find(:all)
     end
   end
+
+  def name
+    user.first_name
+  end
+
+  def mailboxer_email(object)
+    user.email
+  end
+
 
   private
 
