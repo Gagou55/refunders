@@ -1,1 +1,13 @@
-<h1>My purchases</h1>
+<div class="container">
+  <div class="row">
+    <h1>My purchases</h1>
+    <% @purchases.each do |purchase| %>
+      <div class="col-xs-3 text-center green-card col-md-offset-1">
+        <%= image_tag purchase.announce.company.logo, :class => 'img-rounded img-show' %> <br>
+        <%= purchase.announce.company.name %> <br>
+        <%= "#{purchase.announce.number_of_share} #{purchase.announce.kind.name}" %> <br>
+        <%= "#{purchase.announce.price} €" %>
+      </div>
+    <% end %>
+  </div>
+</div>
