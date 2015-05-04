@@ -26,6 +26,21 @@
   padding-bottom: 0;
 }
 
+
+#comments_form {
+  background: rgba(79, 73, 73, 0.34);
+  padding: 20px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.img-comments{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  }
+
 .nav-tabs a {
   color: white;
 }
@@ -42,3 +57,4 @@ p {
 .content {
   margin-top: -44px;
 }
+

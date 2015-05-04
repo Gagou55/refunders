@@ -30,12 +30,13 @@ en:
     users:
       edit: 'Edit my profile'
   announces:
-    sell_price: 'Sell price:'
-    display: 'Show'
     back: 'Back'
+    comments: 'Comments'
+    display: 'Show'
     purchase: 'Buy'
     register: 'Register'
     root: 'Home'
+    sell_price: 'Sell price:'
     show:
       title: '%{name}'
       general_information: 'General informations'
