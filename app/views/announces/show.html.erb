@@ -38,8 +38,8 @@
       <div class="row">
         <div class="col-md-9">
           <!-- Tab panes -->
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home"><%= @announce.company.general_information %></div>
+          <div class="tab-content mt-10">
+            <div role="tabpanel" class="tab-pane active" id="home"><%= markdown(@announce.company.general_information) %></div>
             <div role="tabpanel" class="tab-pane" id="profile"><%= @announce.company.business_model %></div>
             <div role="tabpanel" class="tab-pane" id="messages"><%= @announce.company.development %></div>
             <div role="tabpanel" class="tab-pane" id="settings"><%= @announce.company.vision %></div>
