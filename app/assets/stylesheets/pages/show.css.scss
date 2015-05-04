@@ -28,18 +28,41 @@
 
 
 #comments_form {
-  background: rgba(79, 73, 73, 0.34);
+  background: rgba(143, 214, 148, 0.37);
   padding: 20px;
   left: 0;
   right: 0;
   bottom: 0;
 }
 
+.comment-box{
+  background: rgba(143, 214, 148, 0.37);
+}
+
+.name-on-a-comment{
+  color: rgba(255, 255, 255, 0.57);
+}
+
+.subject-of-a-comment{
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.body-of-a-comment{
+  color:white;
+}
+
 .img-comments{
   border-radius: 50%;
+  border-color: red;
   width: 30px;
   height: 30px;
   }
+
+.current-user-avatar{
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
 
 .nav-tabs a {
   color: white;

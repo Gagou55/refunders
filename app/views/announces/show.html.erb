@@ -65,32 +65,53 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-md-8">
+    <div class="col-md-10 col-md-offset-1">
       <h2><%= t('announces.comments')%></h2>
-
       <%= form_tag(announce_messages_path(@announce), method: :post, :id => 'comments_form') do %>
-        <%= current_user.email %>
+        <%= image_tag current_user.picture, class: "img-avatar current-user-avatar" %>
+        <br>
+        <div class="name-on-a-comment">
+          <%= "#{current_user.first_name} #{current_user.last_name}" %>
+        </div>
+
+        <br>
         <%= text_field_tag(:subject, params[:subject],{:class => "form-control", :placeholder => "Sujet"}) %>
         <%= text_area_tag(:body, params[:body], {:class => "form-control", :placeholder => "Message"}) %>
-        <%= submit_tag 'Send email' %>
+        <br>
+        <%= submit_tag t('announces.send'), class: 'btn btn-acide' %>
       <% end %>
       <div class="clear"></div>
-      <% @announce.mailbox.conversations.first(5).each do |conversation| %>
-        <div>
-          <% receipts = conversation.receipts_for @announce %>
-          <% receipts.each do |receipt| %>
-            <% if receipt.notification.sender.picture.present? %>
-              <%= image_tag receipt.notification.sender.picture, width: 25, height:25, class: "img-avatar img-comments" %>
-            <% else  %>
-              <%= image_tag "Business-Businessman.ico", width: 25, height:25, class: "img-avatar img-comments" %>
+      <div class="comment-box">
+        <% @announce.mailbox.conversations.first(5).each do |conversation| %>
+          <div>
+            <% receipts = conversation.receipts_for @announce %>
+            <% receipts.each do |receipt| %>
+            <div class="row">
+              <div class="col-xs-1 text-center">
+                <% if receipt.notification.sender.picture.present? %>
+                  <%= image_tag receipt.notification.sender.picture, width: 25, height:25, class: "img-avatar img-comments" %>
+                <% else  %>
+                  <%= image_tag "Business-Businessman.ico", width: 25, height:25, class: "img-avatar img-comments" %>
+                <% end %>
+              </div>
+              <div class="col-xs-4 name-on-a-comment">
+                <%= "#{receipt.notification.sender.first_name} #{receipt.notification.sender.last_name}" %>
+              </div>
+              <br>
+              <div class="col-xs-4 subject-of-a-comment">
+                <strong><%= "#{receipt.message.subject}" %></strong>
+              </div>
+              <br>
+              <div class="col-xs-1"></div>
+              <div class="col-xs-4 body-of-a-comment">
+                <%= "#{receipt.message.body}" %>
+                <br><br>
+              </div>
             <% end %>
-            <strong><%= "#{receipt.notification.sender.first_name} #{receipt.notification.sender.last_name}" %></strong> <i><%= "#{receipt.message.subject}" %></i>
-           <br>
-            <%= "#{receipt.message.body}" %>
-            <br><br>
-          <% end %>
+          </div>
         </div>
       <% end %>
     </div>
+  </div>
 </div>
 
