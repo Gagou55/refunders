@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  acts_as_messageable
+
   after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable,
@@ -12,6 +14,9 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
+
+  has_many :announces
+  has_many :purchases
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -26,8 +31,13 @@ class User < ActiveRecord::Base
     end
   end
 
-  has_many :announces
-  has_many :purchases
+  def name
+    @user.first_name
+  end
+
+  def mailboxer_email(object)
+    @user.email
+  end
 
   # validates :first_name, presence: true
   # validates :last_name, presence: true

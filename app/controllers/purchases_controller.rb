@@ -16,6 +16,7 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = current_user.purchases.new(purchase_params)
+
     if @purchase.save
       redirect_to purchase_path(@purchase)
     else

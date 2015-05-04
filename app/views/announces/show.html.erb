@@ -41,5 +41,18 @@
   <h2 id="team_company" class = "text-center"><%= t '.team' %></h2>
   <%= @announce.company.team %>
 
+  <h2>Messages</h2>
+
+  <%= form_tag(announce_messages_path(@announce), method: :post) do %>
+    <%= text_field_tag :subject %>
+    <%= text_area_tag :body %>
+    <%= submit_tag 'Send email' %>
+  <% end %>
+
+  <% @announce.mailbox.conversations.each do |conversation| %>
+    <div>
+      <%= conversation.inspect %>
+    </div>
+  <% end %>
   </div>
 </div>
