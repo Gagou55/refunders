@@ -13,6 +13,7 @@
   height:130px;
   margin-bottom:19px;
   margin-top:20px;
+  border-radius:50%;
 }
 
 .title-announce {
@@ -23,4 +24,21 @@
   text-transform: uppercase;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.nav-tabs a {
+  color: white;
+}
+
+.nav-tabs a:hover {
+  color:#555555;
+
+}
+
+p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.content {
+  margin-top: -44px;
 }
