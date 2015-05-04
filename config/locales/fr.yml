@@ -9,6 +9,7 @@ fr:
       edit: 'Modifier'
   announces:
     sell_price: 'Prix de vente:'
+    comments: 'Commentaires'
     display: "Voir l'annonce"
     back: 'Retour'
     purchase: 'Acheter'

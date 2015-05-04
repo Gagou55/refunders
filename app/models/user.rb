@@ -32,11 +32,11 @@ class User < ActiveRecord::Base
   end
 
   def name
-    @user.first_name
+    first_name
   end
 
   def mailboxer_email(object)
-    @user.email
+    email
   end
 
   # validates :first_name, presence: true

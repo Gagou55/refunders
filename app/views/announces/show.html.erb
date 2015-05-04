@@ -63,7 +63,7 @@
 
 <div class="container">
   <div class="row">
-  <h2>Messages</h2>
+  <h2><%= t('announces.comments')%></h2>
 
   <%= form_tag(announce_messages_path(@announce), method: :post) do %>
     <%= text_field_tag :subject %>
@@ -73,7 +73,10 @@
 
   <% @announce.mailbox.conversations.each do |conversation| %>
     <div>
-      <%= conversation.inspect %>
+      <% receipts = conversation.receipts_for @announce %>
+      <% receipts.each do |receipt| %>
+        <%= receipt.message %>
+      <% end %>
     </div>
   <% end %>
   </div>
