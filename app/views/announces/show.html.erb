@@ -63,22 +63,32 @@
 
 <div class="container">
   <div class="row">
-  <h2><%= t('announces.comments')%></h2>
+      <div class="col-md-8">
+      <h2><%= t('announces.comments')%></h2>
 
-  <%= form_tag(announce_messages_path(@announce), method: :post) do %>
-    <%= text_field_tag :subject %>
-    <%= text_area_tag :body %>
-    <%= submit_tag 'Send email' %>
-  <% end %>
-
-  <% @announce.mailbox.conversations.each do |conversation| %>
-    <div>
-      <% receipts = conversation.receipts_for @announce %>
-      <% receipts.each do |receipt| %>
-        <%= receipt.message %>
+      <%= form_tag(announce_messages_path(@announce), method: :post, :id => 'comments_form') do %>
+        <%= current_user.email %>
+        <%= text_field_tag(:subject, params[:subject],{:class => "form-control", :placeholder => "Sujet"}) %>
+        <%= text_area_tag(:body, params[:body], {:class => "form-control", :placeholder => "Message"}) %>
+        <%= submit_tag 'Send email' %>
+      <% end %>
+      <div class="clear"></div>
+      <% @announce.mailbox.conversations.first(5).each do |conversation| %>
+        <div>
+          <% receipts = conversation.receipts_for @announce %>
+          <% receipts.each do |receipt| %>
+            <% if receipt.notification.sender.picture.present? %>
+              <%= image_tag receipt.notification.sender.picture, width: 25, height:25, class: "img-avatar img-comments" %>
+            <% else  %>
+              <%= image_tag "Business-Businessman.ico", width: 25, height:25, class: "img-avatar img-comments" %>
+            <% end %>
+            <strong><%= "#{receipt.notification.sender.first_name} #{receipt.notification.sender.last_name}" %></strong> <i><%= "#{receipt.message.subject}" %></i>
+           <br>
+            <%= "#{receipt.message.body}" %>
+            <br><br>
+          <% end %>
+        </div>
       <% end %>
     </div>
-  <% end %>
-  </div>
 </div>
 
