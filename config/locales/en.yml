@@ -37,6 +37,7 @@ en:
     register: 'Register'
     root: 'Home'
     sell_price: 'Sell price:'
+    send: 'Send'
     show:
       title: '%{name}'
       general_information: 'General informations'
