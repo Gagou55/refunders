@@ -2,28 +2,42 @@
 
   <div class="row">
     <div class="col-xs-3 text-center">
-
-
-      <%= @user.first_name %>
-      <%= @user.last_name %> <br><br>
-      <%= @user.address %> <br>
+      <div class="green-card">
+        <%= image_tag current_user.picture(:medium), size: "150x150", class: "img-circle" %> <br>
+        <%= @user.first_name %>
+        <%= @user.last_name %> <br><br>
+        <%= @user.address %> <br>
+      </div>
       <%= link_to edit_user_registration_path(current_user.id) do %>
         <i class="fa fa-cog fa-spin"></i> <%= t ".profile", default: "Modifier votre profil" %>
         <br>
-
-      <%= link_to "Voir mes annonces", account_announces_path %>
-
-        <br>
+      <% end %>
       <%= link_to "Ajouter une annonce", new_account_announce_path %>
         <br>
         <br>
         <br>
         <br>
-      <% end %>
+
     </div>
 
-
-
+    <div class="col-xs-6 col-md-offset-1">
+      <%= link_to "Voir mes annonces", account_announces_path %> <br>
+      <% @announces.each do |announce| %>
+        <%= announce.title %>
+        <%= announce.company.name %>
+        <%= "#{announce.price} €" %>
+        <%= "#{announce.number_of_share} #{announce.kind.name}" %> <br>
+      <% end %>
+      <%= link_to "Mon portefeuille", account_purchases_path %> <br>
+      <% sum = 0 %>
+      <% @purchases.each do |purchase| %>
+        <%= purchase.announce.company.name %>
+        <%= "#{purchase.announce.number_of_share} #{purchase.announce.kind.name}" %>
+        <%= "#{purchase.announce.price} €" %>
+        <% sum += purchase.announce.price.to_i %> <br>
+      <% end %>
+      <%= "Total: #{sum} €" %>
+    </div>
   </div>
 </div>
 

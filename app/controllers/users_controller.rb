@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @announces = current_user.announces
+    @purchases = current_user.purchases
   end
 
   def update
