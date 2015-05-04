@@ -40,10 +40,10 @@
           <!-- Tab panes -->
           <div class="tab-content mt-10">
             <div role="tabpanel" class="tab-pane active" id="home"><%= markdown(@announce.company.general_information) %></div>
-            <div role="tabpanel" class="tab-pane" id="profile"><%= @announce.company.business_model %></div>
-            <div role="tabpanel" class="tab-pane" id="messages"><%= @announce.company.development %></div>
-            <div role="tabpanel" class="tab-pane" id="settings"><%= @announce.company.vision %></div>
-            <div role="tabpanel" class="tab-pane" id="settings"><%= @announce.company.team %></div>
+            <div role="tabpanel" class="tab-pane" id="profile"><%= markdown(@announce.company.business_model) %></div>
+            <div role="tabpanel" class="tab-pane" id="messages"><%= markdown(@announce.company.development) %></div>
+            <div role="tabpanel" class="tab-pane" id="settings"><%= markdown(@announce.company.vision) %></div>
+            <div role="tabpanel" class="tab-pane" id="settings"><%= markdown(@announce.company.team) %></div>
           </div>
         </div>
       <div class="col-md-1 col-md-offset-1 mt-20">
