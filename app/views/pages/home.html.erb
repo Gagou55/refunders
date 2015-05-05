@@ -47,7 +47,9 @@ Home
               </div>
             </div>
           <% end %>
-          <h4><%= link_to t('pages.see_more'), announces_path, id:'see_more' %></h4>
+          <h4>
+            <%= link_to (t('pages.see_more') + " <i class='fa fa-long-arrow-right'></i>").html_safe, announces_path, id:'see_more' %>
+          </h4>
         </div>
       </div>
     </div>
