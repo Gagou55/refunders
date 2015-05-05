@@ -12,7 +12,6 @@ module Account
     end
 
     def create
-
       @announce = current_user.announces.new(announce_params)
       @company = Company.new
       if @announce.save

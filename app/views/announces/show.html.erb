@@ -3,13 +3,21 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2">
-          <%= image_tag @announce.company.logo, :class => 'img-rounded img-show' %> <br>
+
+          <% if @announce.company.logo.present? %>
+            <%= image_tag @announce.company.logo, :class => 'img-rounded img-show' %> <br>
+          <% else %>
+            <%= image_tag "http://placehold.it/200x200", :class => 'img-rounded img-show' %> <br>
+          <% end %>
         </div>
         <div class="col-md-6">
           <h2 class="title-announce"><%= @announce.title %></h2>
-          <p><%= @announce.company.sector.name %></p>
-           <p><%= @announce.company.summary.truncate(200) %></p>
-
+          <p>
+            <%= @announce.company.sector ? @announce.company.sector.name : "not defined yet" %>
+          </p>
+           <p>
+            <%= @announce.company.summary ? @announce.company.summary.truncate(200) : "not defined yet" %>
+          </p>
         </div>
         <div class="col-md-2 col-md-offset-1 mt-40">
           <p><%= @announce.company.name %></p>
@@ -39,11 +47,17 @@
         <div class="col-md-9">
           <!-- Tab panes -->
           <div class="tab-content mt-10">
-            <div role="tabpanel" class="tab-pane active" id="home"><%= markdown(@announce.company.general_information) %></div>
-            <div role="tabpanel" class="tab-pane" id="profile"><%= markdown(@announce.company.business_model) %></div>
-            <div role="tabpanel" class="tab-pane" id="messages"><%= markdown(@announce.company.development) %></div>
-            <div role="tabpanel" class="tab-pane" id="settings"><%= markdown(@announce.company.vision) %></div>
-            <div role="tabpanel" class="tab-pane" id="settings"><%= markdown(@announce.company.team) %></div>
+            <div role="tabpanel" class="tab-pane active" id="home">
+              <%=  @announce.company.general_information ? markdown(@announce.company.general_information) : "" %></div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+              <%=  @announce.company.business_model ? markdown(@announce.company.business_model) : "" %></div>
+            <div role="tabpanel" class="tab-pane" id="messages">
+              <%= @announce.company.development ? markdown(@announce.company.development) : "" %></div>
+            <div role="tabpanel" class="tab-pane" id="settings">
+              <%= @announce.company.vision ? markdown(@announce.company.vision) : "" %></div>
+            <div role="tabpanel" class="tab-pane" id="settings">
+              <%= @announce.company.team ? markdown(@announce.company.team) : "" %>
+            </div>
           </div>
         </div>
       <div class="col-md-1 col-md-offset-1 mt-20">
@@ -60,58 +74,62 @@
       </div>
     </div>
   </div>
-  <%= link_to t('announces.back'), root_path, class:"ml-20" %>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <h2><%= t('announces.comments')%></h2>
+    <h2 class="text-center"><%= t('announces.comments')%></h2>
+    <div class="col-md-1 col-md-offset-1 text-center">
+      <%= image_tag current_user.picture, class: "img-avatar current-user-avatar" %>
+      <div class="name-on-a-comment">
+        <%= "#{current_user.first_name} #{current_user.last_name}" %>
+      </div>
+    </div>
+    <div class="col-md-9">
       <%= form_tag(announce_messages_path(@announce), method: :post, :id => 'comments_form') do %>
-        <%= image_tag current_user.picture, class: "img-avatar current-user-avatar" %>
-        <br>
-        <div class="name-on-a-comment">
-          <%= "#{current_user.first_name} #{current_user.last_name}" %>
+        <div class="form-group">
+          <%= text_field_tag(:subject, params[:subject],{:class => "form-control", :placeholder => "Sujet"}) %>
         </div>
-
-        <br>
-        <%= text_field_tag(:subject, params[:subject],{:class => "form-control", :placeholder => "Sujet"}) %>
-        <%= text_area_tag(:body, params[:body], {:class => "form-control", :placeholder => "Message"}) %>
-        <br>
+        <div class="form-group">
+          <%= text_area_tag(:body, params[:body], {:class => "form-control", :placeholder => "Message"}) %>
+        </div>
         <%= submit_tag t('announces.send'), class: 'btn btn-acide' %>
-      <% end %>
-      <div class="clear"></div>
-      <div class="comment-box">
-        <% @announce.mailbox.conversations.first(5).each do |conversation| %>
-          <div>
-            <% receipts = conversation.receipts_for @announce %>
-            <% receipts.each do |receipt| %>
-            <div class="row">
-              <div class="col-xs-1 text-center">
-                <% if receipt.notification.sender.picture.present? %>
-                  <%= image_tag receipt.notification.sender.picture, width: 25, height:25, class: "img-avatar img-comments" %>
-                <% else  %>
-                  <%= image_tag "Business-Businessman.ico", width: 25, height:25, class: "img-avatar img-comments" %>
-                <% end %>
-              </div>
-              <div class="col-xs-4 name-on-a-comment">
-                <%= "#{receipt.notification.sender.first_name} #{receipt.notification.sender.last_name}" %>
-              </div>
-              <br>
-              <div class="col-xs-4 subject-of-a-comment">
-                <strong><%= "#{receipt.message.subject}" %></strong>
-              </div>
-              <br>
-              <div class="col-xs-1"></div>
-              <div class="col-xs-4 body-of-a-comment">
-                <%= "#{receipt.message.body}" %>
-                <br><br>
-              </div>
-            <% end %>
-          </div>
-        </div>
       <% end %>
     </div>
   </div>
+
+  <div class="comments-flow">
+    <% @announce.mailbox.conversations.first(5).each do |conversation| %>
+      <% receipts = conversation.receipts_for @announce %>
+        <% receipts.each do |receipt| %>
+        <div class="comment-box">
+          <div class="row">
+            <div class="col-md-1 col-md-offset-1 text-center">
+              <div class="comment-image">
+                <% if receipt.notification.sender.picture.present? %>
+                  <%= image_tag receipt.notification.sender.picture, width: 25, height:25, class: "img-avatar current-user-avatar" %>
+                <% else  %>
+                  <%= image_tag "Business-Businessman.ico", width: 25, height:25, class: "img-avatar current-user-avatar" %>
+                <% end %>
+                <div class="name-on-a-comment">
+                  <%= "#{receipt.notification.sender.first_name} #{receipt.notification.sender.last_name}" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9 name-on-a-comment">
+              <div class="comment-body">
+                <h3><strong><%= "#{receipt.message.subject}" %></strong></h3>
+                <p><%= "#{receipt.message.body}" %></p>
+                <p class="text-muted">
+                  posté <%= time_ago_in_words(receipt.message.created_at) %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
 
