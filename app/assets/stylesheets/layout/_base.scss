@@ -41,6 +41,10 @@
   margin-top:40px;
 }
 
+.mt-100 {
+  margin-top:100px;
+}
+
 .mr-20 {
   margin-right: 20px;
 }
@@ -81,3 +85,25 @@ body, html, .wrap {
 //   height: 55px; .push must be the same height as .footer
 //   background-color: rgb(139, 122, 122);
 // }
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  padding: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  }
+
+th {
+  text-align: center;
+}
+
+td, th {
+  text-align: center;
+}
+
+.none-decoration {
+  color: black;
+}
+
+.none-decoration:hover {
+  color: rgba(0, 0, 0, 0.51);
+}
