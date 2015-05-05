@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :purchases
   end
 
+  get '/cards', to: 'pages#cards'
+
   resources :announces do
     resources :messages,  only: [:create]
     resources :purchases, only: [:new, :create]
