@@ -1,0 +1,7 @@
+<div id ="profil_nav"
+    <ul class="list-inline">
+      <li><%= link_to "Mes annonces", account_announces_path %></li>
+      <li><%= link_to "Mes achats", account_purchases_path %></li>
+      <li><%= link_to "Mon profil", user_path(current_user[:id]) %></li>
+    </ul>
+  </div>
