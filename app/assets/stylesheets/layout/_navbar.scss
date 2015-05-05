@@ -41,12 +41,14 @@ $navbar-profile-border-width: 2px;
  * ------------------------------------- */
 
 
-  .pages_home {
+  .pages_home, .devise_sessions_new, .registrations_new {
     .navbar {
       background: transparent;
       border-bottom: transparent;
     }
   }
+
+
 
 .navbar-wagon {
   background: $navbar-bg;
