@@ -1,11 +1,16 @@
-<div class="container">
-  <div class="row">
-    <h1>My purchase</h1>
-    <div class="col-xs-3 text-center green-card col-md-offset-1">
-      <%= image_tag @purchase.announce.company.logo, :class => 'img-rounded img-show' %> <br>
-      <%= @purchase.announce.company.name %> <br>
-      <%= "#{@purchase.announce.number_of_share} #{@purchase.announce.kind.name}" %> <br>
-      <%= "#{@purchase.announce.price} €" %>
-    </div>
-  </div>
+<div class="text-center padded">
+  <h1>Récapitulatif de votre achat</h1>
+  <%= image_tag @purchase.announce.company.logo, :class => 'img-rounded img-show' %>
+  <h2>
+    <%= @purchase.announce.company.name %>
+  </h2>
+  <p>
+    <%= "#{@purchase.announce.number_of_share} #{@purchase.announce.kind.name}" %>
+  </p>
+  <p>
+    <%= "#{@purchase.announce.price} €" %>
+  </p>
+
+  <a href="#" class="btn btn-primary">Confirmer votre achat</a>
 </div>
+
