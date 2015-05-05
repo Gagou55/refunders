@@ -27,6 +27,23 @@ en:
       back: 'Back'
       delete: 'Delete'
       edit: 'Edit'
+      index:
+        company: 'Company'
+        sector: 'Sector'
+        quantity: 'Quantity'
+        kind: 'Kind'
+        my-announces: 'My Announces'
+        not_defined: "Not defined yet"
+        pending: 'Pending'
+        published: 'Published'
+        price: 'Price'
+        date: 'Date'
+        status: 'Status'
+    purchases:
+      index:
+        my-purchases: 'My Purchases'
+      show:
+        my-purchase: 'My Purchase'
     users:
       edit: 'Edit my profile'
   announces:
@@ -40,6 +57,9 @@ en:
         zero: 'Create the first announce'
         one: 'One result'
         other: 'List of results: %{count}'
+      show-announce: 'Show Announce'
+      sell: 'to sell'
+      total-price: 'Total Price:'
     root: 'Home'
     sell_price: 'Sell price:'
     send: 'Send'
@@ -79,6 +99,12 @@ en:
     some_announces: 'Last announces'
     who-we-are: 'Who we are'
     who-we-are-description: "In the landscape of crowdfunding, many platforms offer to invest in a company's capital. But, it is very difficult even impossible to find an issue of this investment. It is in this context that Refunders was created, to propose a marketplace in which everyone can sell its share in total security."
+    home:
+      search: 'Search'
+  purchases:
+    show:
+      confirm-purchase: 'Confirm your Purchase'
+      recap-purchase: 'Summary of your Purchase'
   shared:
       profile: 'Profile'
       my_announces: 'My Announces'

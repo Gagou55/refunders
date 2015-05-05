@@ -61,9 +61,9 @@ Home
                   </span>
                   <span class="survey-stage">
                     <% if user_signed_in? %>
-                      <%= link_to "Voir l'annonce", announce, class: "btn btn-acide float-right " %>
+                      <%= link_to t('announces.index.show-announce'), announce, class: "btn btn-acide float-right " %>
                     <% else %>
-                      <%= link_to "Voir l'annonce", new_user_session_path, class: "btn btn-acide float-right" %>
+                      <%= link_to t('announces.index.show-announce'), new_user_session_path, class: "btn btn-acide float-right" %>
                     <% end %>
                   </span>
                 </div>
@@ -84,7 +84,7 @@ Home
       <%= text_field_tag(:min_price, params[:min_price], {:class => "form-control", :placeholder => "Prix Min"}) %>
       <%= text_field_tag(:max_price, params[:max_price], {:class => "form-control", :placeholder => "Prix Max"}) %>
 
-      <%= submit_tag "Search" , class: "btn btn-acide btn-search" %>
+      <%= submit_tag t('pages.home.search') , class: "btn btn-acide btn-search" %>
       <% end %>
     </div>
 
