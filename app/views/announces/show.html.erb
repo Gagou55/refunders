@@ -13,16 +13,16 @@
         <div class="col-md-6">
           <h2 class="title-announce"><%= @announce.title %></h2>
           <p>
-            <%= @announce.company.sector ? @announce.company.sector.name : "not defined yet" %>
+            <%= @announce.company.sector ? @announce.company.sector.name : t('account.announces.index.not_defined') %>
           </p>
            <p>
-            <%= @announce.company.summary ? @announce.company.summary.truncate(200) : "not defined yet" %>
+            <%= @announce.company.summary ? @announce.company.summary.truncate(200) : t('account.announces.index.not_defined') %>
           </p>
         </div>
         <div class="col-md-2 col-md-offset-1 mt-40">
           <p><%= @announce.company.name %></p>
-          <p><%= "#{@announce.number_of_share} #{@announce.kind.name} vendues" %></p>
-          <p><b><%= "Prix total: #{@announce.price}€" %></b></p>
+          <p><%= "#{@announce.number_of_share} #{@announce.kind.name} #{t('announces.index.sell')}" %></p>
+          <p><b><%= "#{t('announces.index.total-price')} #{@announce.price}€" %></b></p>
           <br>
         </div>
       </div>

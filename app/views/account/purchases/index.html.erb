@@ -4,16 +4,16 @@
   <div class="container">
     <div class="row mt-100">
       <table class="table table-hover mt-40">
-        <h1 class="text-center">My purchases</h1>
+        <h1 class="text-center"><%= t('account.purchases.index.my-purchases') %></h1>
           <thead>
             <tr>
               <th></th>
-              <th>Société</th>
-              <th>Secteur</th>
-              <th>Quantité</th>
-              <th>Type</th>
-              <th>Prix</th>
-              <th>Date</th>
+              <th><%= t('account.announces.index.company') %></th>
+              <th><%= t('account.announces.index.sector') %></th>
+              <th><%= t('account.announces.index.quantity') %></th>
+              <th><%= t('account.announces.index.kind') %></th>
+              <th><%= t('account.announces.index.price') %></th>
+              <th><%= t('account.announces.index.date') %></th>
               <th></th>
             </tr>
           </thead>
@@ -26,7 +26,7 @@
               <td><%= purchase.announce.number_of_share %></td>
               <td><%= purchase.announce.kind.name %></td>
               <td><%= "#{purchase.announce.price} €" %></td>
-              <td><%= "#{purchase.created_at.day}/#{purchase.created_at.month}/#{purchase.created_at.year}" %></td>
+              <td><%= "#{purchase.created_at.strftime("%d %b. %Y")}" %></td>
           </tbody>
         <% end %>
       </table>

@@ -1,7 +1,7 @@
 <div class="container">
   <%= render 'shared/profil_nav' %>
   <div class="row">
-    <h1>My purchase</h1>
+    <h1><%= t('account.purchases.show.my-purchase') %></h1>
     <div class="col-xs-3 text-center green-card col-md-offset-1">
       <%= image_tag @purchase.announce.company.logo, :class => 'img-rounded img-show' %> <br>
       <%= @purchase.announce.company.name %> <br>

@@ -44,9 +44,9 @@
               </span>
               <span class="survey-stage">
                   <% if user_signed_in? %>
-                    <%= link_to "Voir l'annonce", announce, class: "btn btn-acide float-right " %>
+                    <%= link_to t('announces.index.show-announce'), announce, class: "btn btn-acide float-right " %>
                   <% else %>
-                    <%= link_to "Voir l'annonce", new_user_session_path, class: "btn btn-acide float-right" %>
+                    <%= link_to t('announces.index.show-announce'), new_user_session_path, class: "btn btn-acide float-right" %>
                   <% end %>
               </span>
             </div>
