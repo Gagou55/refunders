@@ -15,6 +15,10 @@ fr:
     back: 'Retour'
     purchase: 'Acheter'
     register: "S'enregistrer"
+    research:
+      zero: 'Créer la première annonce'
+      one: 'Un seul résultat'
+      other: 'Liste de resultats: %{count}'
     root: 'Accueil'
     show:
       title: "%{name}"

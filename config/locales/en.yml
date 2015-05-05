@@ -35,6 +35,11 @@ en:
     display: 'Show'
     purchase: 'Buy'
     register: 'Register'
+    index:
+      research:
+        zero: 'Create the first announce'
+        one: 'One result'
+        other: 'List of results: %{count}'
     root: 'Home'
     sell_price: 'Sell price:'
     send: 'Send'

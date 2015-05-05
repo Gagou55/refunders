@@ -1,8 +1,9 @@
-<div class="nos_annonces back_announce">
-  <div class="container  index-announces">
+<div class="nos_annonces back_announce search-results-page">
+  <div class="container index-announces">
     <div class="row">
+      <h1 class="text-center search-title"><%= t '.research', count: @announces.size %></h1>
       <% @announces.each do |announce| %>
-          <div class= "col-xs-12">
+          <div class= "col-xs-12 mt-20">
             <div class="white_card">
               <div class="row" id="announce-home">
                 <div class="col-xs-2">
