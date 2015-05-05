@@ -60,17 +60,19 @@ Home
                     <%= "#{announce.created_at.strftime("%d %b. %Y")}" %>
                   </span>
                   <span class="survey-stage">
-                      <% if user_signed_in? %>
-                        <%= link_to "Voir l'annonce", announce, class: "btn btn-acide float-right " %>
-                      <% else %>
-                        <%= link_to "Voir l'annonce", new_user_session_path, class: "btn btn-acide float-right" %>
-                      <% end %>
+                    <% if user_signed_in? %>
+                      <%= link_to "Voir l'annonce", announce, class: "btn btn-acide float-right " %>
+                    <% else %>
+                      <%= link_to "Voir l'annonce", new_user_session_path, class: "btn btn-acide float-right" %>
+                    <% end %>
                   </span>
                 </div>
               </li>
             <% end %>
           </ul>
-          <h4><%= link_to t('pages.see_more'), announces_path, id:'see_more' %></h4>
+          <h4>
+            <%= link_to (t('pages.see_more') + " <i class='fa fa-long-arrow-right'></i>").html_safe, announces_path, id:'see_more' %>
+          </h4>
         </div>
       </div>
     </div>
