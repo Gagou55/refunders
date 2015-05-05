@@ -39,6 +39,14 @@ $navbar-profile-border-width: 2px;
 /* -------------------------------------
  * SCSS code
  * ------------------------------------- */
+
+
+  .pages_home {
+    .navbar {
+      background: transparent;
+    }
+  }
+
 .navbar-wagon {
   background: $navbar-bg;
   font-family: $navbar-font-family;
@@ -54,7 +62,8 @@ $navbar-profile-border-width: 2px;
   position: absolute;
   z-index: 100;
   width: 100%;
-  background: transparent;
+  background: #212121;
+  border-bottom: 4px solid #3A5E3D;
 
   .navbar-nav > li > a,
   .navbar-nav > .open > a,

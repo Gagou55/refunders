@@ -1,50 +1,54 @@
-<div class="container">
-  <div class="row mt-100">
-    <table class="table table-hover mt-40">
-      <h1 class="text-center">My announces</h1>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Société</th>
-            <th>Secteur</th>
-            <th>Quantité</th>
-            <th>Type</th>
-            <th>Prix</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-            <% @announces.each do |announce| %>
-<!--             <div class="col-xs-3 text-center green-card col-md-offset-1"> -->
-            <td><%= image_tag announce.company.logo, :class => 'img-rounded img-table' %></td>
-            <td><%= announce.company.name %></td>
-            <td><%= announce.company.sector.name %></td>
-            <td><%= announce.number_of_share %></td>
-            <td><%= announce.kind.name %></td>
-            <td><%= "#{announce.price} €" %></td>
-            <td><%= "#{announce.created_at.day}/#{announce.created_at.month}/#{announce.created_at.year}" %></td>
-            <td>
-              <% if announce.published? %>
-                <i class="fa fa-check-circle-o"></i>
-              <% else %>
-                <%= "En attente" %>
-              <% end %>
-            </td>
-            <td>
-                <i class="fa fa-tags"></i>
-              <% if announce.published? %>
-                <%= link_to announce_path(announce[:id]), :class => 'none-decoration' do %>
-                  <%= "Annonce publiée" %>
+<!-- <div class="container"> -->
+<div class="top-account">
+<%= render 'shared/profil_nav'%>
+  <div class="container">
+    <div class="row mt-100">
+      <table class="table table-hover mt-40">
+        <h1 class="text-center">My announces</h1>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Société</th>
+              <th>Secteur</th>
+              <th>Quantité</th>
+              <th>Type</th>
+              <th>Prix</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @announces.each do |announce| %>
+  <!--             <div class="col-xs-3 text-center green-card col-md-offset-1"> -->
+              <td><%= image_tag announce.company.logo, :class => 'img-rounded img-table' %></td>
+              <td><%= announce.company.name %></td>
+              <td><%= announce.company.sector.name %></td>
+              <td><%= announce.number_of_share %></td>
+              <td><%= announce.kind.name %></td>
+              <td><%= "#{announce.price} €" %></td>
+              <td><%= "#{announce.created_at.day}/#{announce.created_at.month}/#{announce.created_at.year}" %></td>
+              <td>
+                <% if announce.published? %>
+                  <i class="fa fa-check-circle-o"></i>
+                <% else %>
+                  <%= "En attente" %>
                 <% end %>
-              <% else %>
-                <%= "En attente de publication" %>
-              <% end %>
-            </td>
-        </tbody>
-      <% end %>
-    </table>
+              </td>
+              <td>
+                  <i class="fa fa-tags"></i>
+                <% if announce.published? %>
+                  <%= link_to announce_path(announce[:id]), :class => 'none-decoration' do %>
+                    <%= "Annonce publiée" %>
+                  <% end %>
+                <% else %>
+                  <%= "En attente de publication" %>
+                <% end %>
+              </td>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
