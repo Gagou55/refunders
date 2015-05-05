@@ -21,7 +21,11 @@
                 </div>
 
                 <div class="col-xs-4">
-                <%= link_to "Voir l'annonce", announce, class: "btn btn-primary float-right mr-20 mt-30" %>
+                  <% if user_signed_in? %>
+                    <%= link_to "Voir l'annonce", announce, class: "btn btn-primary float-right mr-20 mt-30" %>
+                  <% else %>
+                    <%= link_to "Voir l'annonce", new_user_session_path, class: "btn btn-primary float-right mr-20 mt-30" %>
+                  <% end %>
               </div>
             </div>
           </div>
