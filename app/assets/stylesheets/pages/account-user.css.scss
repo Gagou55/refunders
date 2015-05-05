@@ -1,14 +1,35 @@
-.top-account {
-  padding-top:74px;
-  background-color: #3A5E3D;
-  height:50px;
-}
+// .top-account {
+//   padding-top:74px;
+//   background-color: #3A5E3D;
+//   height:50px;
+// }
+
+// #profil_nav {
+//   padding-left: 20px;
+//   background-color: #8FD694;
+
+//   a {
+//     color:white;
+//   }
+// }
 
 #profil_nav {
   padding-left: 20px;
-  background-color: #8FD694;
+  color: rgb(40, 56, 42);
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.1);
+  background-color: rgba(208, 245, 211, 0);
 
-  a {
-    color:white;
-  }
+    li {
+      padding-top:70px;
+    }
+
+    a {
+    color: rgb(87, 87, 87);
+    margin-right: 23px;
+    }
 }
+

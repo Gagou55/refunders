@@ -39,16 +39,7 @@
                   <i class="fa fa-user"></i> <%= t ".profile", default: t('shared.profile') %>
                 <% end %>
               </li>
-              <li>
-                <%= link_to account_purchases_path do %>
-                  <i class="fa fa-list-alt"></i>  <%= t ".profile", default: t('shared.my_portfolio') %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to account_announces_path do %>
-                  <i class="fa fa-money"></i>  <%= t ".profile", default: t('shared.my_announces') %>
-                <% end %>
-              </li>
+
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: t('shared.sign_out') %>

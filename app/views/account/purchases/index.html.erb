@@ -1,31 +1,35 @@
-<div class="container">
-  <div class="row mt-100">
-    <table class="table table-hover mt-40">
-      <h1 class="text-center">My purchases</h1>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Société</th>
-            <th>Secteur</th>
-            <th>Quantité</th>
-            <th>Type</th>
-            <th>Prix</th>
-            <th>Date</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @purchases.each do |purchase| %>
-<!--             <div class="col-xs-3 text-center green-card col-md-offset-1"> -->
-            <td><%= image_tag purchase.announce.company.logo, :class => 'img-rounded img-table' %></td>
-            <td><%= purchase.announce.company.name %></td>
-            <td><%= purchase.announce.company.sector.name %></td>
-            <td><%= purchase.announce.number_of_share %></td>
-            <td><%= purchase.announce.kind.name %></td>
-            <td><%= "#{purchase.announce.price} €" %></td>
-            <td><%= "#{purchase.created_at.day}/#{purchase.created_at.month}/#{purchase.created_at.year}" %></td>
-        </tbody>
-      <% end %>
-    </table>
+<!-- <div class="container"> -->
+<div class="top-account">
+  <%= render 'shared/profil_nav'%>
+  <div class="container">
+    <div class="row mt-100">
+      <table class="table table-hover mt-40">
+        <h1 class="text-center">My purchases</h1>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Société</th>
+              <th>Secteur</th>
+              <th>Quantité</th>
+              <th>Type</th>
+              <th>Prix</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @purchases.each do |purchase| %>
+  <!--             <div class="col-xs-3 text-center green-card col-md-offset-1"> -->
+              <td><%= image_tag purchase.announce.company.logo, :class => 'img-rounded img-table' %></td>
+              <td><%= purchase.announce.company.name %></td>
+              <td><%= purchase.announce.company.sector.name %></td>
+              <td><%= purchase.announce.number_of_share %></td>
+              <td><%= purchase.announce.kind.name %></td>
+              <td><%= "#{purchase.announce.price} €" %></td>
+              <td><%= "#{purchase.created_at.day}/#{purchase.created_at.month}/#{purchase.created_at.year}" %></td>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
