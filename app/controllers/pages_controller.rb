@@ -5,4 +5,7 @@ class PagesController < ApplicationController
     @announces = Announce.where(published: true)
     @announces = @announces.sample(3)
   end
+
+  def cards
+  end
 end
