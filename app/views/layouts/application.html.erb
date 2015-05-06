@@ -13,8 +13,6 @@
 <body class="<%= (params[:controller] + "_" + params[:action]).gsub('/', '_') %>">
   <div class="wrapd">
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= render 'shared/notices' %>
 
 
     <%= yield %>
