@@ -2,13 +2,13 @@
 
   <%= render 'shared/profil_nav' %>
   <div class="container">
-    <div class="row mt-0">
+    <div class="row">
       <div class="col-md-8 col-md-offset-2 profile-container">
         <div id="profil-cadre">
           <%= image_tag current_user.picture(:medium), class: "circle" %>
 
-            <p><%= "Votre nom : #{current_user.last_name}" %></p>
-            <p><%= "Votre prénom : #{current_user.first_name}" %></p>
+            <p><%= "Votre nom : #{current_user.last_name.capitalize}" %></p>
+            <p><%= "Votre prénom : #{current_user.first_name.capitalize}" %></p>
             <p> <%= "Votre e-mail: #{current_user.email}" %></p>
           <div class="row">
           <div class="col-md-2 col-md-offset-5">
