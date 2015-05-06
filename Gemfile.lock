@@ -197,6 +197,7 @@ GEM
     omniauth-oauth2 (1.3.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    open_uri_redirections (0.2.1)
     orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
@@ -322,6 +323,7 @@ DEPENDENCIES
   mailboxer
   omniauth-facebook
   omniauth-linkedin-oauth2
+  open_uri_redirections
   paperclip
   pg
   pry-byebug
