@@ -46,6 +46,14 @@
                   <%= t('account.announces.index.pending') %>
                 <% end %>
               </td>
+              <td>
+                <%= link_to edit_account_announce_path(announce[:id]), :class => 'color-black' do%>
+                  <i class="fa fa-pencil"></i> Edit
+                <% end %>
+              </td>
+
+
+
           </tbody>
         <% end %>
       </table>
