@@ -1,0 +1,17 @@
+<h1>Purchase of share <%= @purchase.announce_sku %></h1>
+<%= form_tag purchase_payments_path(@purchase) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@purchase.amount) %></span>
+    </label>
+  </article>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Teddy"
+    data-description="Teddy <%= @purchase.announce_sku %>"
+    data-amount="<%= @purchase.amount_cents %>"
+    data-currency="EUR"></script>
+
+<% end %>
