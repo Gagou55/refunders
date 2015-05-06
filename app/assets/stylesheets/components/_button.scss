@@ -7,15 +7,33 @@
 
  .btn.btn-facebook {
   background-color: #3b5998;
+  color:white;
+  a {
+    color:white !important;
+  }
+  &:hover {
+    color:white !important;
+  }
 }
 
-
+.fa-facebook-f:before, .fa-facebook:before {
+  padding: 10px;
+  }
  /*---- linkedin -----------*/
 
 .btn.btn-linkedin {
   background-color: #0976b4;
+  color:white;
+  a {
+    color:white !important;
+  }
+  &:hover {
+    color:white !important;
+  }
 }
-
+.fa-linkedin:before {
+  padding: 10px;
+}
 
 /*----------------button -----------------*/
 
