@@ -1,26 +1,31 @@
 class AnnouncesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @companies = Company.where("sector_id = ?", params[:search_sector])
 
-    @announces = []
+    if params[:search_sector]
+      @companies = Company.where("sector_id = ?", params[:search_sector])
 
-    @companies.each do |company|
-      company.announces.each do |announce|
-        @announces << announce
+      @announces = []
+
+      @companies.each do |company|
+        company.announces.each do |announce|
+          @announces << announce
+        end
       end
+
+      @announces = @announces.select { |announce| announce.published == true }
+      @announces = @announces.select { |announce| announce.kind_id.to_s == params[:search_kind] }
+
+      min_price = params[:min_price]
+      max_price = params[:max_price]
+
+      @announces = @announces.select { |announce| announce.price >= min_price.to_i } if min_price.present?
+      @announces = @announces.select { |announce| announce.price <= max_price.to_i } if max_price.present?
+
+      @announces
+    else
+      @announces = Announce.all
     end
-
-    @announces = @announces.select { |announce| announce.published == true }
-    @announces = @announces.select { |announce| announce.kind_id.to_s == params[:search_kind] }
-
-    min_price = params[:min_price]
-    max_price = params[:max_price]
-
-    @announces = @announces.select { |announce| announce.price >= min_price.to_i } if min_price.present?
-    @announces = @announces.select { |announce| announce.price <= max_price.to_i } if max_price.present?
-
-    @announces
   end
 
   # def new
