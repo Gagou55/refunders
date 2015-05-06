@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'payments/new'
+
   root to: 'pages#home'
 
   ActiveAdmin.routes(self)
@@ -14,6 +16,10 @@ Rails.application.routes.draw do
   end
 
   get '/cards', to: 'pages#cards'
+
+resources :purchases, only: [:show, :create] do
+  resources :payments, only: [:new, :create]
+end
 
   resources :announces do
     resources :messages,  only: [:create]

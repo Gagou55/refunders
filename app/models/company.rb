@@ -2,7 +2,7 @@ class Company < ActiveRecord::Base
   belongs_to :ipo_company
   belongs_to :sector
 
-  has_many :announces
+  has_many :announces, dependent: :destroy
 
   has_attached_file :logo,
     styles: { medium: "300x300>", thumb: "100x100>" }

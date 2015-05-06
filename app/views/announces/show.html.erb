@@ -22,7 +22,7 @@
         <div class="col-md-2 col-md-offset-1 mt-40">
           <p><%= @announce.company.name %></p>
           <p><%= "#{@announce.number_of_share} #{@announce.kind.name} #{t('announces.index.sell')}" %></p>
-          <p><b><%= "#{t('announces.index.total-price')} #{@announce.price}€" %></b></p>
+          <p><b><%= "#{t('announces.index.total-price')} #{humanized_money_with_symbol(@announce.price)}" %></b></p>
           <br>
         </div>
       </div>

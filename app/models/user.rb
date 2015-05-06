@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
-  has_many :announces
-  has_many :purchases
+  has_many :announces, dependent: :destroy
+  has_many :purchases, dependent: :destroy
 
   def self.find_for_linkedin_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

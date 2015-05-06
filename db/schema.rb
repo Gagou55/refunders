@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504094944) do
+ActiveRecord::Schema.define(version: 20150506142713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150504094944) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title"
-    t.integer  "price"
     t.integer  "number_of_share"
     t.text     "reason"
     t.boolean  "published",       default: false
@@ -43,6 +42,8 @@ ActiveRecord::Schema.define(version: 20150504094944) do
     t.datetime "updated_at",                      null: false
     t.boolean  "cancelled"
     t.integer  "kind_id"
+    t.integer  "price_cents",     default: 0,     null: false
+    t.string   "sku"
   end
 
   add_index "announces", ["company_id"], name: "index_announces_on_company_id", using: :btree
@@ -141,8 +142,12 @@ ActiveRecord::Schema.define(version: 20150504094944) do
   create_table "purchases", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "announce_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "amount_cents", default: 0, null: false
+    t.string   "announce_sku"
+    t.string   "state"
+    t.json     "payment"
   end
 
   add_index "purchases", ["announce_id"], name: "index_purchases_on_announce_id", using: :btree
@@ -189,3 +194,14 @@ ActiveRecord::Schema.define(version: 20150504094944) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "announces", "companies", name: "announces_company_id_fk"
+  add_foreign_key "announces", "kinds", name: "announces_kind_id_fk"
+  add_foreign_key "announces", "users", name: "announces_user_id_fk"
+  add_foreign_key "companies", "ipo_companies", name: "companies_ipo_company_id_fk"
+  add_foreign_key "companies", "sectors", name: "companies_sector_id_fk"
+  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "purchases", "announces", name: "purchases_announce_id_fk"
+  add_foreign_key "purchases", "users", name: "purchases_user_id_fk"
+end

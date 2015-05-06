@@ -16,6 +16,8 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = current_user.purchases.new(purchase_params)
+    @purchase.announce_sku = @purchase.announce.sku
+    @purchase.state = "pending"
 
     if @purchase.save
       redirect_to purchase_path(@purchase)

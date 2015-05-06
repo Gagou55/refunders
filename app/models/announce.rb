@@ -7,12 +7,15 @@ class Announce < ActiveRecord::Base
   belongs_to :company
   belongs_to :user
   belongs_to :kind
-  has_one :purchase
+  has_one :purchase, dependent: :destroy
+
+  monetize :price_cents
 
   validates :title, presence: true
   validates :price, presence: true
   validates :number_of_share, presence: true
   validates :published, default: false
+  validates :sku, presence: true, uniqueness: true
 
   def has_been_purchased?
     self.purchase.present?

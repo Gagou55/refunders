@@ -14,8 +14,7 @@
       <p>
         <%= "#{@purchase.announce.price} €" %>
       </p>
-
-      <a href="#" class="btn btn-primary"><%= t('purchases.show.confirm-purchase') %></a>
+        <%= link_to t('purchases.show.confirm-purchase'), new_purchase_payment_path(@purchase[:id]), class: "btn btn-primary" %>
     </div>
   </div>
 </div>

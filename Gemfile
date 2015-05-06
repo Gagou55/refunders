@@ -14,6 +14,9 @@ gem "aws-sdk", "< 2.0"
 gem "faker"
 gem 'activeadmin', github: 'activeadmin'
 gem 'open_uri_redirections'
+gem 'money-rails'
+gem 'stripe'
+
 
 gem 'coffee-rails'
 
@@ -22,7 +25,7 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "bootstrap-sass"
 gem "font-awesome-sass"
-gem 'mailboxer'
+gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 
 gem "rails-i18n"
 gem "devise-i18n"
