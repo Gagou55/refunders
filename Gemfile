@@ -13,6 +13,7 @@ gem "paperclip"
 gem "aws-sdk", "< 2.0"
 gem "faker"
 gem 'activeadmin', github: 'activeadmin'
+gem 'open_uri_redirections'
 
 gem 'coffee-rails'
 
