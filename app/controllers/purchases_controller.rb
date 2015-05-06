@@ -20,7 +20,7 @@ class PurchasesController < ApplicationController
     @purchase.state = "pending"
 
     if @purchase.save
-      redirect_to purchase_path(@purchase)
+      redirect_to new_purchase_payment_path(@purchase[:id])
     else
       render :back
     end
