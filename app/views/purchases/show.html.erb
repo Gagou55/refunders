@@ -3,7 +3,7 @@
   <%= render 'shared/profil_nav'%>
   <div class="row">
     <div class="text-center padded">
-      <h1>Récapitulatif de votre achat</h1>
+      <h1><%= t('purchases.show.recap-purchase') %></h1>
       <%= image_tag @purchase.announce.company.logo, :class => 'img-rounded img-show' %>
       <h2>
         <%= @purchase.announce.company.name %>
@@ -15,7 +15,7 @@
         <%= "#{@purchase.announce.price} €" %>
       </p>
 
-      <a href="#" class="btn btn-primary">Confirmer votre achat</a>
+      <a href="#" class="btn btn-primary"><%= t('purchases.show.confirm-purchase') %></a>
     </div>
   </div>
 </div>

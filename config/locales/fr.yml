@@ -5,6 +5,23 @@ fr:
       back: 'Retour'
       delete: 'Supprimer'
       edit: 'Modifier'
+      index:
+        company: 'Société'
+        sector: 'Secteur'
+        quantity: 'Quantité'
+        not_defined: "Pas encore définit"
+        pending: 'En attente'
+        published: 'Publiée'
+        kind: 'Type'
+        my-announces: 'Mes Annonces'
+        price: 'Prix'
+        date: 'Date'
+        status: 'Status'
+    purchases:
+      index:
+        my-purchases: 'Mes Achats'
+      show:
+        my-purchase: 'Mon Achat'
     users:
       edit: 'Modifier'
   announces:
@@ -15,10 +32,14 @@ fr:
     back: 'Retour'
     purchase: 'Acheter'
     register: "S'enregistrer"
-    research:
-      zero: 'Créer la première annonce'
-      one: 'Un seul résultat'
-      other: 'Liste de resultats: %{count}'
+    index:
+      research:
+        zero: 'Créer la première annonce'
+        one: 'Un seul résultat'
+        other: 'Liste de resultats: %{count}'
+      show-announce: "Voir l'annonce"
+      sell: 'à Vendre'
+      total-price: 'Prix total:'
     root: 'Accueil'
     show:
       title: "%{name}"
@@ -56,6 +77,12 @@ fr:
     some_announces: 'Dernières annonces'
     who-we-are: 'Qui sommes-nous'
     who-we-are-description: "Dans le paysage du crowdfunding, se développe de plus-en-plus de plateformes proposant une participation au capital contre investissement. Cependant, il est difficile voire impossible de sortir de cet investissement. C'est dans ce contexte que Refunders s'est créée, proposant une place de marché où chacun peut revendre ses participations en toute sécurité."
+    home:
+      search: 'Rechercher'
+  purchases:
+    show:
+      confirm-purchase: 'Confirmer votre achat'
+      recap-purchase: 'Récapitulatif de votre achat'
   shared:
     profile: 'Mon Profil'
     my_announces: 'Mes Annonces'
