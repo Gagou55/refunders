@@ -50,8 +50,10 @@ en:
     back: 'Back'
     comments: 'Comments'
     display: 'Show'
+    edit: 'Edit'
     purchase: 'Buy'
     register: 'Register'
+    sell: 'Too late! SOLD'
     index:
       research:
         zero: 'Create the first announce'

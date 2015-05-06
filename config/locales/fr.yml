@@ -29,9 +29,11 @@ fr:
     send: 'Envoyer'
     comments: 'Commentaires'
     display: "Voir l'annonce"
+    edit: 'Modifier'
     back: 'Retour'
     purchase: 'Acheter'
     register: "S'enregistrer"
+    sell: 'Trop tard! Vendu'
     index:
       research:
         zero: 'Créer la première annonce'
