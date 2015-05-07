@@ -7,6 +7,7 @@ Home
 <% end %>
 <div id="banner" class="text-center">
   <div class="back-color">
+    <div class="transition-helper">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1">
@@ -22,7 +23,7 @@ Home
           <ul class="surveys list text-left">
             <% @announces.each do |announce| %>
               <li class="survey-item">
-                <span class='survey-image' style="background: url(<%= image_url announce.company.logo %>); background-size: 100%;">
+                <span class='survey-image' style="background: url(<%= image_url announce.company.logo %>); background-size: cover;  background-position: center center;">
 
                 </span>
 
@@ -102,6 +103,7 @@ Home
 
       </div>
     </div>
+    </div>
   </div>
 
   <!-- <div class="text-center who-we-are">
@@ -165,3 +167,11 @@ Home
   </div> -->
 
 </div>
+
+<%= content_for(:after_js) do  %>
+  <script>
+    $('#see_more').click(function(){
+      $('.transition-helper').addClass('move')
+    })
+  </script>
+<% end %>

@@ -8,3 +8,20 @@ var new_company = $("<%= j render 'new' %>").hide()
 $("#new_announce .form-group").first().after(new_company);
 new_company.slideDown(1000);
 $(".add-company").hide();
+
+
+var select = $('select').first()
+
+$('#company_name').on('keyup', function(){
+  that = $(this)
+  if ($('#newCompany').length == 0) {
+    select.append($("<option selected='true' id='newCompany'>").html(that.val()))
+  } else {
+    $('#newCompany').html(that.val())
+  }
+
+  if ($(this).val() == "") {
+    $('#newCompany').remove()
+  }
+})
+
