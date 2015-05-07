@@ -56,7 +56,7 @@
         <% end %>
         <% if user_signed_in? %>
             <li>
-              <%= link_to t(".top_call_to_action", default: t('shared.add_announce')), new_account_announce_path(current_user[:id]), class: "btn btn-danger btn", id: "sell" %>
+              <%= link_to t(".top_call_to_action", default: t('shared.add_announce')), new_account_announce_path, class: "btn btn-danger btn", id: "sell" %>
             </li>
           <% else  %>
             <li>

@@ -20,23 +20,28 @@
   <%= render 'shared/profil_nav'%>
   <div class="row">
     <div class="text-center padded">
-      <h1><%= t('purchases.show.recap-purchase') %></h1>
-      <%= image_tag @purchase.announce.company.logo, :class => 'img-rounded img-show' %>
-      <h2>
-        <%= @purchase.announce.company.name %>
-      </h2>
-      <p>
-        <%= "#{@purchase.announce.number_of_share} #{@purchase.announce.kind.name}" %>
-      </p>
-      <p>
-        <%= "#{@purchase.announce.price} €" %>
-      </p>
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-name="Mon achat"
-        data-description="Réference <%= @purchase.announce_sku %>"
-        data-amount="Prix: <%= @purchase.amount_cents %>"
-        data-currency="EUR"></script>
+      <div class="col-xs-3"></div>
+      <div class="col-xs-6 recap">
+        <h1><%= t('purchases.show.recap-purchase') %></h1>
+        <%= image_tag @purchase.announce.company.logo, :class => 'img-rounded img-show' %>
+        <h2>
+          <%= @purchase.announce.company.name %>
+        </h2>
+        <div class="texte-recap">
+          <p>
+            <%= "#{@purchase.announce.number_of_share} #{@purchase.announce.kind.name}" %>
+          </p>
+          <p>
+            <%= "#{@purchase.announce.price} €" %>
+          </p>
+        </div>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="Mon achat"
+          data-description="Réference <%= @purchase.announce_sku %>"
+          data-amount="Prix: <%= @purchase.amount_cents %>"
+          data-currency="EUR"></script>
+      </div>
     </div>
   </div>
 </div>

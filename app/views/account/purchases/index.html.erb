@@ -35,11 +35,13 @@
                 <td><%= purchase.announce.kind.name %></td>
                 <td><%= "#{purchase.announce.price} €" %></td>
                 <td><%= "#{purchase.created_at.strftime("%d %b. %Y")}" %></td>
-                <% if purchase.state == "pending" %>
-                  <% en attente de paiement link to card %>
-                <% elsif purchase.state == "payed" %>
-                  <i class="fa fa-check-circle-o"></i>
-                <% end %>
+                <td>
+                  <% if purchase.state == "pending" %>
+                    <%= "Pending" %>
+                  <% elsif purchase.state == "payed" %>
+                    <i class="fa fa-check-circle-o"></i>
+                  <% end %>
+                </td>
             </tbody>
           <% end %>
         </table>
