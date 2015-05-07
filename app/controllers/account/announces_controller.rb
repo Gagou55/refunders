@@ -15,7 +15,7 @@ module Account
       @announce = current_user.announces.new(announce_params)
       @announce.sku = SecureRandom.uuid
       if @announce.save
-        redirect_to announce_path(@announce)
+        redirect_to account_announces_path
         flash[:notice] = "Votre annonce est en cours de validation"
       else
         render :new
