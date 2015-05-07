@@ -25,10 +25,15 @@ en:
     announces:
       add: 'Add a company'
       back: 'Back'
+      choose: 'Select a company'
       delete: 'Delete'
       edit: 'Edit'
+      reason: 'I want to buy a boat !'
+      title: "3% of a delivery marketplace"
       index:
         company: 'Company'
+        create: 'Create your first announce !'
+        create2: 'Create'
         sector: 'Sector'
         quantity: 'Quantity'
         kind: 'Kind'
@@ -41,6 +46,8 @@ en:
         status: 'Status'
     purchases:
       index:
+        create: 'Make my first purchase'
+        create2: 'Search'
         my-purchases: 'My Purchases'
       show:
         my-purchase: 'My Purchase'

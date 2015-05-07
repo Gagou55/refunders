@@ -3,33 +3,42 @@
   <%= render 'shared/profil_nav'%>
   <div class="container">
     <div class="row mt-100">
-      <table class="table table-hover mt-40">
-        <h1 class="text-center"><%= t('account.purchases.index.my-purchases') %></h1>
-          <thead>
-            <tr>
-              <th></th>
-              <th><%= t('account.announces.index.company') %></th>
-              <th><%= t('account.announces.index.sector') %></th>
-              <th><%= t('account.announces.index.quantity') %></th>
-              <th><%= t('account.announces.index.kind') %></th>
-              <th><%= t('account.announces.index.price') %></th>
-              <th><%= t('account.announces.index.date') %></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @purchases.each do |purchase| %>
-  <!--             <div class="col-xs-3 text-center green-card col-md-offset-1"> -->
-              <td><%= image_tag purchase.announce.company.logo, :class => 'img-rounded img-table' %></td>
-              <td><%= purchase.announce.company.name %></td>
-              <td><%= purchase.announce.company.sector.name %></td>
-              <td><%= purchase.announce.number_of_share %></td>
-              <td><%= purchase.announce.kind.name %></td>
-              <td><%= "#{purchase.announce.price} €" %></td>
-              <td><%= "#{purchase.created_at.strftime("%d %b. %Y")}" %></td>
-          </tbody>
+      <% if @purchases.count == 0 %>
+        <h1 class="text-center">
+        <%= link_to new_account_announce_path, :class => 'none-decoration' do %>
+          <%= t('account.purchases.index.create') %> <br>
+          <%= link_to t('account.purchases.index.create2'), announces_path, :class => 'btn btn-acide' %>
+        </h1>
         <% end %>
-      </table>
+      <% else %>
+        <table class="table table-hover mt-40">
+          <h1 class="text-center"><%= t('account.purchases.index.my-purchases') %></h1>
+            <thead>
+              <tr>
+                <th></th>
+                <th><%= t('account.announces.index.company') %></th>
+                <th><%= t('account.announces.index.sector') %></th>
+                <th><%= t('account.announces.index.quantity') %></th>
+                <th><%= t('account.announces.index.kind') %></th>
+                <th><%= t('account.announces.index.price') %></th>
+                <th><%= t('account.announces.index.date') %></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @purchases.each do |purchase| %>
+    <!--             <div class="col-xs-3 text-center green-card col-md-offset-1"> -->
+                <td><%= image_tag purchase.announce.company.logo, :class => 'img-rounded img-table' %></td>
+                <td><%= purchase.announce.company.name %></td>
+                <td><%= purchase.announce.company.sector.name %></td>
+                <td><%= purchase.announce.number_of_share %></td>
+                <td><%= purchase.announce.kind.name %></td>
+                <td><%= "#{purchase.announce.price} €" %></td>
+                <td><%= "#{purchase.created_at.strftime("%d %b. %Y")}" %></td>
+            </tbody>
+          <% end %>
+        </table>
+      <% end %>
     </div>
   </div>
 </div>

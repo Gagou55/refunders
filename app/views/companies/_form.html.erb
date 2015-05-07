@@ -1,5 +1,5 @@
 <div class="col-sm-6" id:'form-company-new' >
-  <%= simple_form_for @company do |f| %>
+  <%= simple_form_for @company, remote: true, method: "POST" do |f| %>
     <%= f.input :name %>
     <%= f.submit %> <br> <br>
   <% end %>

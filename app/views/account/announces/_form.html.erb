@@ -2,13 +2,14 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <%= simple_form_for(@announce, url: @announce.new_record? ? account_announces_path : account_announce_path(@announce)) do |f| %>
-      <%= f.association :company %>
+      <%= f.association :company, selected: Company.all.size, :include_blank => true, placeholder: t('account.announces.choose') %>
       <%= link_to t('account.announces.add'), new_company_path, remote: true, class: "add-company" %>
-      <%= f.input :title %>
-      <%= f.input :price %>
+      <%= f.input :title, placeholder: t('account.announces.title')  %>
+      <%= f.input :price, placeholder: "300" %>
+<!--  -->
       <%= f.association :kind %>
       <%= f.input :number_of_share %>
-      <%= f.input :reason %>
+      <%= f.input :reason, placeholder: t('account.announces.reason') %>
       <%= f.submit class: "btn btn-acide" %>
       <% end %>
     </div>
