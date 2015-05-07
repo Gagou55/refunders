@@ -3,60 +3,74 @@
 <%= render 'shared/profil_nav'%>
   <div class="container">
     <div class="row mt-100">
-      <table class="table table-hover mt-40">
-        <h1 class="text-center"><%= t('account.announces.index.my-announces') %></h1>
-          <thead>
-            <tr>
-              <th></th>
-              <th><%= t('account.announces.index.company') %></th>
-              <th><%= t('account.announces.index.sector') %></th>
-              <th><%= t('account.announces.index.quantity') %></th>
-              <th><%= t('account.announces.index.kind') %></th>
-              <th><%= t('account.announces.index.price') %></th>
-              <th><%= t('account.announces.index.date') %></th>
-              <th><%= t('account.announces.index.status') %></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-              <% @announces.each do |announce| %>
-  <!--             <div class="col-xs-3 text-center green-card col-md-offset-1"> -->
-              <td><%= image_tag announce.company.logo, :class => 'img-rounded img-table' %></td>
-              <td><%= announce.company.name %></td>
-              <td><%= announce.company.sector ? announce.company.sector.name : t('account.announces.index.not_defined') %></td>
-              <td><%= announce.number_of_share %></td>
-              <td><%= announce.kind.name %></td>
-              <td><%= "#{announce.price} €" %></td>
-              <td><%= "#{announce.created_at.strftime("%d %b. %Y")}" %></td>
-              <td>
-                <% if announce.published? %>
-                  <i class="fa fa-check-circle-o"></i>
-                <% else %>
-                  <%= t('account.announces.index.pending') %>
-                <% end %>
-              </td>
-              <td>
-                  <i class="fa fa-tags"></i>
-                <% if announce.published? %>
+      <% if @announces.count == 0 %>
+        <h1 class="text-center">
+        <%= link_to new_account_announce_path, :class => 'none-decoration' do %>
+          <%= t('account.announces.index.create') %> <br>
+          <%= link_to t('account.announces.index.create2'), new_account_announce_path, :class => 'btn btn-acide' %>
+        </h1>
+        <% end %>
+      <% else %>
+        <table class="table table-hover mt-40">
+          <h1 class="text-center"><%= t('account.announces.index.my-announces') %></h1>
+            <thead>
+              <tr>
+                <th></th>
+                <th><%= t('account.announces.index.company') %></th>
+                <th><%= t('account.announces.index.sector') %></th>
+                <th><%= t('account.announces.index.quantity') %></th>
+                <th><%= t('account.announces.index.kind') %></th>
+                <th><%= t('account.announces.index.price') %></th>
+                <th><%= t('account.announces.index.date') %></th>
+                <th><%= t('account.announces.index.status') %></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+                <% @announces.each do |announce| %>
+    <!--             <div class="col-xs-3 text-center green-card col-md-offset-1"> -->
+                <td>
+                <% if announce.company.logo.present? %>
                   <%= link_to announce_path(announce[:id]), :class => 'none-decoration' do %>
-                    <%= t('account.announces.index.published') %>
+                    <%= image_tag announce.company.logo, :class => 'img-rounded img-table' %>
                   <% end %>
                 <% else %>
-                  <%= t('account.announces.index.pending') %>
+                  <i class="fa fa-globe"></i>
                 <% end %>
-              </td>
-              <td>
-                <%= link_to edit_account_announce_path(announce[:id]), :class => 'color-black' do%>
-                  <i class="fa fa-pencil"></i> Edit
-                <% end %>
-              </td>
-
-
-
-          </tbody>
-        <% end %>
-      </table>
+                </td>
+                <td><%= announce.company.name %></td>
+                <td><%= announce.company.sector ? announce.company.sector.name : t('account.announces.index.not_defined') %></td>
+                <td><%= announce.number_of_share %></td>
+                <td><%= announce.kind.name %></td>
+                <td><%= "#{announce.price} €" %></td>
+                <td><%= "#{announce.created_at.strftime("%d %b. %Y")}" %></td>
+                <td>
+                  <% if announce.published? %>
+                    <i class="fa fa-check-circle-o"></i>
+                  <% else %>
+                    <%= t('account.announces.index.pending') %>
+                  <% end %>
+                </td>
+                <td>
+                    <i class="fa fa-tags"></i>
+                  <% if announce.published? %>
+                    <%= link_to announce_path(announce[:id]), :class => 'none-decoration' do %>
+                      <%= t('account.announces.index.published') %>
+                    <% end %>
+                  <% else %>
+                    <%= t('account.announces.index.pending') %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to edit_account_announce_path(announce[:id]), :class => 'color-black' do%>
+                    <i class="fa fa-pencil"></i> Edit
+                  <% end %>
+                </td>
+            </tbody>
+          <% end %>
+        </table>
+      <% end %>
     </div>
   </div>
 </div>

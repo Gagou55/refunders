@@ -3,10 +3,15 @@ fr:
     announces:
       add: 'Ajouter une compagnie'
       back: 'Retour'
+      choose: 'Selectionner une société'
       delete: 'Supprimer'
       edit: 'Modifier'
+      reason: 'Je veux faire le tour du monde !'
+      title: "3% d'une market place de livraison"
       index:
         company: 'Société'
+        create: 'Créer votre première annonce !'
+        create2: 'Créer'
         sector: 'Secteur'
         quantity: 'Quantité'
         not_defined: "Pas encore définit"
@@ -19,6 +24,8 @@ fr:
         status: 'Status'
     purchases:
       index:
+        create: 'Faire mon premier achat'
+        create2: 'Rechercher'
         my-purchases: 'Mes Achats'
       show:
         my-purchase: 'Mon Achat'
