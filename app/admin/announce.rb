@@ -12,6 +12,6 @@ ActiveAdmin.register Announce do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-permit_params :title, :price, :kind_id, :number_of_share, :reason, :company_id, :user_id, :published, :cancelled
+permit_params :title, :price, :kind_id, :number_of_share, :reason, :company_id, :user_id, :published, :cancelled, :price_cents, :sku
 
 end
