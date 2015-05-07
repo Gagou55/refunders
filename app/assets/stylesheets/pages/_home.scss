@@ -92,3 +92,12 @@ html.pages_home_html, html.announces_index_html {
     height: 100% !important;
   }
 }
+
+.transition-helper {
+  transition: 0.6s opacity ease, transform 0.6s ease;
+
+  &.move {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}

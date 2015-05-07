@@ -13,7 +13,7 @@ module Account
 
     def create
       @announce = current_user.announces.new(announce_params)
-      @company = Company.new
+      @announce.sku = SecureRandom.uuid
       if @announce.save
         redirect_to announce_path(@announce)
         flash[:notice] = "Votre annonce est en cours de validation"
