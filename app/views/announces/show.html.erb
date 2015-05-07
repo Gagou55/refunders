@@ -25,10 +25,19 @@
           <p><b><%= "#{t('announces.index.total-price')} #{humanized_money_with_symbol(@announce.price)}" %></b></p>
 
         </div>
-        <div class="col-md-1 col-md-offset-1 mt-20">
+        <div class="col-md-1 col-md-offset-1">
 
           <% if current_user == @announce.user && !@announce.has_been_purchased? %>
             <%= link_to t('announces.edit'), edit_account_announce_path, class: "btn-lg btn-primary btn-acide-sell" %>
+          <% elsif user_signed_in? && !@announce.has_been_purchased? %>
+            <%= form_for @purchase, url: announce_purchases_path(@announce), method: :post do |f| %>
+              <%= f.hidden_field :announce_id, value: @announce.id %> <br>
+              <%= f.submit t('announces.purchase') , class: "btn-lg btn-primary btn-acide-sell" %>
+            <% end %>
+          <% elsif !user_signed_in? %>
+            <%= link_to t('announces.register'), new_user_registration_path, class: "btn-lg btn-primary btn-acide-sell" %>
+          <% elsif current_user == @announce.user && @announce.has_been_purchased? %>
+            <%= link_to t('announces.sell'), announces_path, class: "btn-lg btn-primary btn-acide-sell" %>
           <% elsif user_signed_in? && @announce.purchase.state == "payed" %>
             <%= link_to t('announces.sell'), announces_path, class: "btn-lg btn-primary btn-acide-sell" %>
           <% elsif user_signed_in? && @announce.purchase.state == "pending" %>
@@ -36,15 +45,6 @@
               <%= f.hidden_field :announce_id, value: @announce.id %> <br>
               <%= f.submit t('announces.purchase') , class: "btn-lg btn-primary btn-acide-sell" %>
             <% end %>
-          <% elsif user_signed_in? && !@announce.has_been_purchased? %>
-            <%= form_for @purchase, url: announce_purchases_path(@announce), method: :post do |f| %>
-              <%= f.hidden_field :announce_id, value: @announce.id %> <br>
-              <%= f.submit t('announces.purchase') , class: "btn-lg btn-primary btn-acide-sell" %>
-            <% end %>
-          <% elsif current_user == @announce.user && @announce.has_been_purchased? %>
-            <%= link_to t('announces.sell'), announces_path, class: "btn-lg btn-primary btn-acide-sell" %>
-          <% else %>
-            <%= link_to t('announces.register'), new_user_registration_path, class: "btn-lg btn-primary btn-acide-sell" %>
           <% end %>
         </div>
       </div>
