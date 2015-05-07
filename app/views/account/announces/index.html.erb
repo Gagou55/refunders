@@ -46,20 +46,18 @@
                 <td><%= "#{announce.price} €" %></td>
                 <td><%= "#{announce.created_at.strftime("%d %b. %Y")}" %></td>
                 <td>
-                  <% if announce.published? %>
-                    <i class="fa fa-check-circle-o"></i>
-                  <% else %>
-                    <%= t('account.announces.index.pending') %>
-                  <% end %>
-                </td>
-                <td>
-                    <i class="fa fa-tags"></i>
+                  <i class="fa fa-tags"></i>
                   <% if announce.published? %>
                     <%= link_to announce_path(announce[:id]), :class => 'none-decoration' do %>
                       <%= t('account.announces.index.published') %>
                     <% end %>
                   <% else %>
                     <%= t('account.announces.index.pending') %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if announce.purchase.state == "payed" %>
+                    <i class="fa fa-check-circle-o"></i>
                   <% end %>
                 </td>
                 <td>

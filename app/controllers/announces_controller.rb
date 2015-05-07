@@ -25,6 +25,7 @@ class AnnouncesController < ApplicationController
       @announces
     else
       @announces = Announce.all
+      @announces = @announces.select { |announce| announce.published == true }
     end
   end
 
