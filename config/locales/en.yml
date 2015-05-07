@@ -53,7 +53,7 @@ en:
     edit: 'Edit'
     purchase: 'Buy'
     register: 'Register'
-    sell: 'Too late! SOLD'
+    sell: 'SOLD'
     index:
       research:
         zero: 'Create the first announce'
