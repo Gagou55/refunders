@@ -10,7 +10,7 @@ require 'faker'
 puts "You need to have an user created, check it first."
 
 puts "Deleting old records..."
-Company.destroy_all
+# Company.destroy_all
 Kind.destroy_all
 Sector.destroy_all
 Announce.destroy_all
@@ -34,38 +34,41 @@ puts "Creating kinds..."
 Kind.create(name: "Actions")
 Kind.create(name: "Obligations")
 
-puts "Creating companies..."
-10.times do
-  company = Company.new({
-    name: Faker::Company.name,
-    summary: Faker::Lorem.sentence(3),
-    general_information: Faker::Lorem.sentence(3),
-    business_model: Faker::Lorem.sentence(3),
-    development: Faker::Lorem.sentence(3),
-    vision: Faker::Lorem.sentence(3),
-    swot: Faker::Lorem.sentence(3),
-    team: Faker::Lorem.sentence(3),
-    sector_id: Sector.all.sample.id,
-    logo: Faker::Avatar.image("my-own-slug", "50x50"),
-  })
-  company.save
-end
+puts "Creating ipo_comanies..."
+Ipo_companies.create(name: "Wiseed")
 
-puts "Creating announces..."
-10.times do
-  announce = Announce.new({
-    title: Faker::Lorem.sentence(3),
-    sku: SecureRandom.uuid,
-    price: rand(10..200),
-    number_of_share: rand(10..200),
-    reason: Faker::Lorem.sentence(3),
-    published: random_boolean = true,
-    company_id: Company.all.sample.id,
-    kind_id: Kind.all.sample.id,
-    user_id: User.all.sample.id,
-  })
-  announce.save
-end
+# puts "Creating companies..."
+# 10.times do
+#   company = Company.new({
+#     name: Faker::Company.name,
+#     summary: Faker::Lorem.sentence(3),
+#     general_information: Faker::Lorem.sentence(3),
+#     business_model: Faker::Lorem.sentence(3),
+#     development: Faker::Lorem.sentence(3),
+#     vision: Faker::Lorem.sentence(3),
+#     swot: Faker::Lorem.sentence(3),
+#     team: Faker::Lorem.sentence(3),
+#     sector_id: Sector.all.sample.id,
+#     logo: Faker::Avatar.image("my-own-slug", "50x50"),
+#   })
+#   company.save
+# end
+
+# puts "Creating announces..."
+# 10.times do
+#   announce = Announce.new({
+#     title: Faker::Lorem.sentence(3),
+#     sku: SecureRandom.uuid,
+#     price: rand(10..200),
+#     number_of_share: rand(10..200),
+#     reason: Faker::Lorem.sentence(3),
+#     published: random_boolean = true,
+#     company_id: Company.all.sample.id,
+#     kind_id: Kind.all.sample.id,
+#     user_id: User.all.sample.id,
+#   })
+#   announce.save
+# end
 
 puts "Done !"
 
