@@ -194,14 +194,14 @@ ActiveRecord::Schema.define(version: 20150506142713) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "announces", "companies", name: "announces_company_id_fk"
-  add_foreign_key "announces", "kinds", name: "announces_kind_id_fk"
-  add_foreign_key "announces", "users", name: "announces_user_id_fk"
-  add_foreign_key "companies", "ipo_companies", name: "companies_ipo_company_id_fk"
-  add_foreign_key "companies", "sectors", name: "companies_sector_id_fk"
+  add_foreign_key "announces", "companies"
+  add_foreign_key "announces", "kinds"
+  add_foreign_key "announces", "users"
+  add_foreign_key "companies", "ipo_companies"
+  add_foreign_key "companies", "sectors"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
-  add_foreign_key "purchases", "announces", name: "purchases_announce_id_fk"
-  add_foreign_key "purchases", "users", name: "purchases_user_id_fk"
+  add_foreign_key "purchases", "announces"
+  add_foreign_key "purchases", "users"
 end
