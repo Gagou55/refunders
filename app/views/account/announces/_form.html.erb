@@ -6,8 +6,7 @@
       <%= link_to t('account.announces.add'), new_company_path, remote: true, class: "add-company" %>
       <%= f.input :title, placeholder: t('account.announces.title')  %>
       <%= f.input :price, placeholder: "300" %>
-<!--  -->
-      <%= f.association :kind %>
+      <%= f.association :kind, as: :radio_buttons, class: "radio-inline" %>
       <%= f.input :number_of_share %>
       <%= f.input :reason, placeholder: t('account.announces.reason') %>
       <%= f.submit class: "btn btn-acide" %>
