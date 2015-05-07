@@ -33,7 +33,7 @@ fr:
     back: 'Retour'
     purchase: 'Acheter'
     register: "S'enregistrer"
-    sell: 'Trop tard! Vendu'
+    sell: 'Vendu'
     index:
       research:
         zero: 'Créer la première annonce'
