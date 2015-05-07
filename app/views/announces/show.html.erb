@@ -23,7 +23,7 @@
           <p><%= @announce.company.name %></p>
           <p><%= "#{@announce.number_of_share} #{@announce.kind.name} #{t('announces.index.sell')}" %></p>
           <p><b><%= "#{t('announces.index.total-price')} #{humanized_money_with_symbol(@announce.price)}" %></b></p>
-          <br>
+
         </div>
         <div class="col-md-1 col-md-offset-1 mt-20">
           <% if current_user == @announce.user && !@announce.has_been_purchased? %>
