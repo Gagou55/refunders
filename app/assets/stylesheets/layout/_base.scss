@@ -17,6 +17,10 @@
   background-color: rgba(57, 57, 57, 0.97);
   z-index: 2;
   height: 100%;
+  background-image: image-url('bg.png');
+  background-size: cover;
+  background-position: center center;
+
 }
 
 .devise_registrations_new_html {
