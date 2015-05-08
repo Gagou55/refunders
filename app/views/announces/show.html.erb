@@ -60,8 +60,8 @@
             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><%= t ('announces.show.general_information') %></a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><%= t '.business_model' %></a></li>
             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><%= t '.development' %></a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><%= t '.vision' %></a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><%= t '.team' %></a></li>
+            <li role="presentation"><a href="#vision" aria-controls="vision" role="tab" data-toggle="tab"><%= t '.vision' %></a></li>
+            <li role="presentation"><a href="#team" aria-controls="team" role="tab" data-toggle="tab"><%= t '.team' %></a></li>
           </ul>
         </div>
       </div>
@@ -75,9 +75,9 @@
               <%=  @announce.company.business_model ? markdown(@announce.company.business_model) : "" %></div>
             <div role="tabpanel" class="tab-pane" id="messages">
               <%= @announce.company.development ? markdown(@announce.company.development) : "" %></div>
-            <div role="tabpanel" class="tab-pane" id="settings">
+            <div role="tabpanel" class="tab-pane" id="vision">
               <%= @announce.company.vision ? markdown(@announce.company.vision) : "" %></div>
-            <div role="tabpanel" class="tab-pane" id="settings">
+            <div role="tabpanel" class="tab-pane" id="team">
               <%= @announce.company.team ? markdown(@announce.company.team) : "" %>
             </div>
           </div>

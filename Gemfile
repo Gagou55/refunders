@@ -16,7 +16,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'open_uri_redirections'
 gem 'money-rails'
 gem 'stripe'
-
+gem "scrollreveal-rails"
 
 gem 'coffee-rails'
 

@@ -21,6 +21,7 @@ class PaymentsController < ApplicationController
     )
 
     @purchase.update(payment: charge.to_json, state: 'payed')
+    @purchase.announce.update(published: false)
 
     redirect_to account_purchases
 

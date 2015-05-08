@@ -37,7 +37,7 @@
                 <td><%= "#{purchase.created_at.strftime("%d %b. %Y")}" %></td>
                 <td>
                   <% if purchase.state == "pending" %>
-                    <%= "Pending" %>
+                    <%= "En attente de paiement" %>
                   <% elsif purchase.state == "payed" %>
                     <i class="fa fa-check-circle-o"></i>
                   <% end %>

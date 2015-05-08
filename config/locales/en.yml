@@ -98,6 +98,7 @@ en:
     registrations:
       address_placeholder: 'Start typing your address'
     sessions:
+      identification: 'Identification'
       connect_with_id: 'Or connect with your account'
       facebook: 'Connect with Facebook'
       linkedin: 'Connect with Linkedin'

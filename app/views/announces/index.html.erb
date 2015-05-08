@@ -1,56 +1,58 @@
 <div class="nos_annonces back_announce search-results-page">
   <div class="container index-announces">
     <div class="row">
-      <h1 class="text-center search-title"><%= t '.research', count: @announces.size %></h1>
+      <h1 class="text-center search-title"><%= t '.research', count: @announces.count {|a| !a.has_been_purchased? } %></h1>
       <ul class="surveys list text-left">
         <% @announces.each do |announce| %>
-          <li class="survey-item">
-            <span class='survey-image' style="background: url(<%= image_url announce.company.logo %>); background-size: 100%;">
+          <% if !announce.has_been_purchased? %>
+            <li class="survey-item" data-sr>
+              <span class='survey-image' style="background: url(<%= image_url announce.company.logo %>); background-size: 100%;">
 
-            </span>
+              </span>
 
-            <span class="survey-country list-only">
-              <%= announce.company.sector.name %>
-            </span>
+              <span class="survey-country list-only">
+                <%= announce.company.sector.name %>
+              </span>
 
-            <span class="survey-name">
-              <%= announce.title %>
-            </span>
+              <span class="survey-name">
+                <%= announce.title %>
+              </span>
 
-            <span class="survey-country grid-only">
-              <%= announce.company.sector.name %>
-            </span>
+              <span class="survey-country grid-only">
+                <%= announce.company.sector.name %>
+              </span>
 
-            <div class="pull-right">
+              <div class="pull-right">
 
-<!--                   <span class="survey-progress">
-                <span class="survey-progress-bg">
-                  <span class="survey-progress-fg" style="width: 88%;"></span>
-                </span> -->
+  <!--                   <span class="survey-progress">
+                  <span class="survey-progress-bg">
+                    <span class="survey-progress-fg" style="width: 88%;"></span>
+                  </span> -->
 
-                <span class="survey-progress-labels">
-                  <span class="survey-progress-label">
-                    <%= "#{announce.number_of_share} #{announce.kind.name}" %>
-                  </span>
+                  <span class="survey-progress-labels">
+                    <span class="survey-progress-label">
+                      <%= "#{announce.number_of_share} #{announce.kind.name}" %>
+                    </span>
 
-                  <span class="survey-completes">
-                    <%= "#{announce.price} €" %>
+                    <span class="survey-completes">
+                      <%= "#{announce.price} €" %>
+                    </span>
                   </span>
                 </span>
-              </span>
 
-               <span class="survey-end-date ended">
-                <%= "#{announce.created_at.strftime("%d %b. %Y")}" %>
-              </span>
-              <span class="survey-stage">
-                  <% if user_signed_in? %>
-                    <%= link_to t('announces.index.show-announce'), announce, class: "btn btn-acide float-right " %>
-                  <% else %>
-                    <%= link_to t('announces.index.show-announce'), new_user_session_path, class: "btn btn-acide float-right" %>
-                  <% end %>
-              </span>
-            </div>
-          </li>
+                 <span class="survey-end-date ended">
+                  <%= "#{announce.created_at.strftime("%d %b. %Y")}" %>
+                </span>
+                <span class="survey-stage">
+                    <% if user_signed_in? %>
+                      <%= link_to t('announces.index.show-announce'), announce, class: "btn btn-acide float-right " %>
+                    <% else %>
+                      <%= link_to t('announces.index.show-announce'), new_user_session_path, class: "btn btn-acide float-right" %>
+                    <% end %>
+                </span>
+              </div>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
