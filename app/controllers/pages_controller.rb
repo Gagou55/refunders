@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @announces = Announce.where(published: true)
-    @announces = @announces.sample(3)
+    @announces = @announces.last(3)
   end
 
   def cards
