@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" },
-    default_url: ActionController::Base.helpers.asset_path('Business-Businessman.ico')
+    default_url: 'Business-Businessman.ico'
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
