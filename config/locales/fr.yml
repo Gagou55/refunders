@@ -76,6 +76,7 @@ fr:
     registrations:
       address_placeholder: 'Taper votre adresse'
     sessions:
+      identification: 'Identifiez-vous'
       connect_with_id: 'Ou connectez-vous avec vos identifiants'
       facebook: 'Connectez-vous avec Facebook'
       linkedin: 'Connectez-vous avec Linkedin'

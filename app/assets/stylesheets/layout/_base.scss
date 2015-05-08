@@ -8,6 +8,10 @@
 /* ----- couleur fond ------ */
 
 
+.search-results-page .survey-item{
+  visibility: hidden;
+}
+
 .back-color {
   position: relative;
   background-color: rgba(57, 57, 57, 0.97);
@@ -15,7 +19,21 @@
   height: 100%;
 }
 
+.devise_registrations_new_html {
+  height: 100%;
+}
 
+.devise_sessions_new_html {
+  height: 100%;
+}
+
+.devise_registrations_new {
+  height: 100%;
+}
+
+.devise_sessions_new {
+  height: 100%;
+}
 .color-black {
   color: black;
 }
